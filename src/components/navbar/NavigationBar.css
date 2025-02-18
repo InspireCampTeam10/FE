@@ -1,0 +1,61 @@
+.navigation-bar-container {
+  width: 6rem;
+  max-width: 100px;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: space-between;
+  height: calc(100vh - 2rem);
+  align-items: center;
+  padding: 1rem 0;
+  background-color: #e5e5e5;
+  box-shadow: 1px 0 1px rgba(55, 55, 55, 0.2);
+}
+
+.navigation-bar-content {
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.navigation-bar-content > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 46px;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 4px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.navigation-bar-content > div:hover {
+  background-color: #373737;
+  color: white;
+  cursor: pointer;
+}
+.navigation-bar-content > div > span {
+  font-size: 14px;
+  padding: 0;
+}
+
+.navigation-bar-login-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 24px;
+  border-radius: 100%;
+  padding: 6px;
+}
+
+.navigation-bar-login-tab:hover {
+  background-color: #373737;
+  color: white;
+  cursor: pointer;
+}
