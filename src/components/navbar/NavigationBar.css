@@ -1,7 +1,7 @@
 .navigation-bar-container {
   width: 6rem;
-  max-width: 100px;
-  min-width: 80px;
+  max-width: 70px;
+  min-width: 70px;
   display: flex;
   flex-direction: column;
   gap: 4px;
