@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import "./SelectMenu.css";
 
 const SelectMenu = ({ toggleSelectTab, selectedTab }) => {
-  console.log(selectedTab);
   return (
     <div className="select-menu-container">
       <div

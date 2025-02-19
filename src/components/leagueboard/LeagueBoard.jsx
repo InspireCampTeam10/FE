@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import "./LeagueBoard.css";
 import PropTypes from "prop-types";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import LeagueBoardItem from "./LeagueBoardItem";
 
 const LeagueBoard = ({ dashboardMockData }) => {
   // isOpen = "wide" or "fold"
   const [isOpen, setIsOpen] = useState(false);
   const tableRef = useRef(null);
   const [tableHeight, setTableHeight] = useState(250);
+  const [clickedRow, setClickedRow] = useState(null);
 
   useEffect(() => {
     if (tableRef.current) {
@@ -16,8 +18,12 @@ const LeagueBoard = ({ dashboardMockData }) => {
     }
   }, []);
 
+  const onClickAnyRow = (rowNum) => {
+    setClickedRow(rowNum);
+  };
+
   return (
-    <div className="league-board-container">
+    <div className="league-board-container" id="league-board">
       <span className="league-title">{dashboardMockData.league}</span>
       <div
         ref={tableRef}
@@ -41,45 +47,36 @@ const LeagueBoard = ({ dashboardMockData }) => {
             </tr>
           </thead>
           <tbody>
-            {dashboardMockData.teams.map((team) => (
-              <tr className="league-board-line" key={team.rank}>
-                <td>{team.rank}</td>
-                <td>{team.name}</td>
-                <td>{team.points}</td>
-                <td>{team.played}</td>
-                <td>{team.win}</td>
-                <td>{team.draw}</td>
-                <td>{team.lose}</td>
-                <td>{team.goals.for}</td>
-                <td>{team.goals.against}</td>
-                <td>{Number(team.goals.for) - Number(team.goals.against)}</td>
-                <td>
-                  <div className="form-container">
-                    {team.form.split("").map((result, index) => (
-                      <span
-                        key={index}
-                        className={`form-result ${
-                          result === "W"
-                            ? "win"
-                            : result === "D"
-                              ? "draw"
-                              : "lose"
-                        }`}
-                      >
-                        {result}
-                      </span>
-                    ))}
-                  </div>
-                </td>
-              </tr>
+            {dashboardMockData.teams.map((team, idx) => (
+              <LeagueBoardItem
+                key={idx}
+                rowIdx={idx}
+                team={team}
+                clickedRow={clickedRow}
+                onClickAnyRow={onClickAnyRow}
+              />
             ))}
           </tbody>
         </table>
       </div>
       {isOpen ? (
-        <IoIosArrowUp onClick={() => setIsOpen(false)} size={32} />
+        <IoIosArrowUp
+          onClick={() => {
+            setIsOpen(false);
+            setClickedRow(null);
+          }}
+          size={32}
+          style={{ color: "var(--text-primary)" }}
+        />
       ) : (
-        <IoIosArrowDown onClick={() => setIsOpen(true)} size={32} />
+        <IoIosArrowDown
+          onClick={() => {
+            setIsOpen(true);
+            setClickedRow(null);
+          }}
+          size={32}
+          style={{ color: "var(--text-primary)" }}
+        />
       )}
     </div>
   );
