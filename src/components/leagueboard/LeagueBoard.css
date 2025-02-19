@@ -1,5 +1,17 @@
 :root {
   --border-league-board: black;
+  --bg-league-board-content: white;
+  --color-league-board-title: black;
+  --bg-hover-league-board-content: #f5f5f5;
+  --text-hover-color: #333333;
+}
+
+:root [data-theme="dark"] {
+  --border-league-board: white;
+  --bg-league-board-content: #2d2d2d;
+  --color-league-board-title: white;
+  --bg-hover-league-board-content: #3d3d3d;
+  --text-hover-color: white;
 }
 
 .league-board-container {
@@ -19,6 +31,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 12px;
+  color: black;
 }
 
 table {
@@ -34,17 +47,19 @@ td {
   padding: 12px;
   text-align: center;
   border-bottom: 1px solid #ddd;
+  background-color: var(--bg-league-board-content);
 }
 
 th {
-  background-color: #f8f9fa;
+  background-color: var(--bg-league-board-content);
   font-weight: bold;
 }
 
-.league-board-line:hover {
-  background-color: #83807b;
+.league-board-line:hover td {
+  background-color: var(--bg-hover-league-board-content);
+  color: var(--text-hover-color);
   cursor: pointer;
-  color: white;
+  transition: background-color 0.2s ease;
 }
 
 .form-container {
