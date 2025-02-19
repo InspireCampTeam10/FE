@@ -1,14 +1,26 @@
+:root {
+  --bg-select-menu-tab: #f2f2f2;
+  --bg-select-menu-tab-hover: #777777;
+}
+
+:root[data-theme="dark"] {
+  --bg-select-menu-tab: #2f2d2b;
+  --bg-select-menu-tab-hover: #f2f2f2;
+}
+
 .select-menu-tab {
   padding: 6px 10px;
-  border-radius: 12px;
-  border: 1px solid gray;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
   text-align: center;
   font-weight: bold;
+  background-color: var(--bg-select-menu-tab);
+  color: var(--text-primary);
 }
 
 .select-menu-tab:hover {
-  background-color: rgb(122, 106, 87);
-  color: white;
+  background-color: var(--bg-select-menu-tab-hover);
+  color: var(--text-reverse-primary);
   cursor: pointer;
 }
 
@@ -20,6 +32,6 @@
 }
 
 .active {
-  background-color: rgb(122, 106, 87);
-  color: white;
+  background-color: var(--bg-select-menu-tab-hover);
+  color: var(--text-reverse-primary);
 }

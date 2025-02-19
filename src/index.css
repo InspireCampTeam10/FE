@@ -1,5 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f6f6f6;
+  background-color: var(--bg-primary);
+  font-family: "Pretendard";
+  letter-spacing: -0.5px;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: normal;
+  font-style: normal;
+  src: url("./fonts/PretendardVariable.woff2") format("truetype");
 }

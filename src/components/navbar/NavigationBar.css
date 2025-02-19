@@ -9,8 +9,9 @@
   height: calc(100vh - 2rem);
   align-items: center;
   padding: 1rem 0;
-  background-color: #e5e5e5;
-  box-shadow: 1px 0 1px rgba(55, 55, 55, 0.2);
+  background-color: var(--bg-nav-bar-primary);
+  border-right: 1px solid rgb(126, 126, 126);
+  color: var(--text-primary);
 }
 
 .navigation-bar-content {
@@ -35,8 +36,8 @@
 }
 
 .navigation-bar-content > div:hover {
-  background-color: #373737;
-  color: white;
+  background-color: var(--bg-nav-bar-hover);
+  color: var(--text-reverse-primary);
   cursor: pointer;
 }
 .navigation-bar-content > div > span {
@@ -58,4 +59,12 @@
   background-color: #373737;
   color: white;
   cursor: pointer;
+}
+
+.navigation-bar-system {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
