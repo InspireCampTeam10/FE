@@ -1,0 +1,87 @@
+:root {
+  --border-league-board: black;
+}
+
+.league-board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.league-board-contents {
+  border: 1px solid var(--border-league-board);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  transition: height 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+.league-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  max-width: 800px;
+  min-width: 600px;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.league-board-line:hover {
+  background-color: #83807b;
+  cursor: pointer;
+  color: white;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.form-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  margin: 0 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.win {
+  border: 2px solid #34a853;
+  color: #34a853;
+}
+
+tr:hover .win,
+tr:hover .draw,
+tr:hover .lose {
+  background-color: #f2f2f2;
+}
+
+.draw {
+  border: 2px solid #9aa0a6;
+  color: #9aa0a6;
+}
+
+.lose {
+  border: 2px solid #ea4335;
+  color: #ea4335;
+}
