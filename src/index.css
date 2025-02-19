@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-primary);
-  font-family: "Pretendard";
+  font-family: "NanumSquare";
   letter-spacing: -0.5px;
 }
 
@@ -11,4 +11,11 @@ body {
   font-weight: normal;
   font-style: normal;
   src: url("./fonts/PretendardVariable.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: "NanumSquare";
+  font-weight: extra-bold;
+  font-style: normal;
+  src: url("./fonts/NanumSquareNeo-Variable.ttf") format("truetype");
 }
