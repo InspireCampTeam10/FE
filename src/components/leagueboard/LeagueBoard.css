@@ -1,7 +1,7 @@
 :root {
   --border-league-board: black;
   --bg-league-board-content: white;
-  --color-league-board-title: black;
+  --text-color: black; /* 새로운 변수 추가 */
   --bg-hover-league-board-content: #f5f5f5;
   --text-hover-color: #333333;
 }
@@ -9,7 +9,7 @@
 :root [data-theme="dark"] {
   --border-league-board: white;
   --bg-league-board-content: #2d2d2d;
-  --color-league-board-title: white;
+  --text-color: white; /* 새로운 변수 추가 */
   --bg-hover-league-board-content: #3d3d3d;
   --text-hover-color: white;
 }
@@ -25,13 +25,6 @@
   overflow: hidden;
   margin-bottom: 0.5rem;
   transition: height 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
-}
-
-.league-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: black;
 }
 
 table {
@@ -99,4 +92,11 @@ tr:hover .lose {
 .lose {
   border: 2px solid #ea4335;
   color: #ea4335;
+}
+
+.league-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: var(--text-primary);
 }
