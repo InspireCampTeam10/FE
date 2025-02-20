@@ -31,6 +31,7 @@
   caret-shape: block;
   font-size: 1rem;
   margin-left: 4px;
+  height: 2rem;
 }
 
 .search-bar-input-container {
@@ -41,6 +42,7 @@
   margin-right: 8px;
   font-size: large;
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   background-color: var(--bg-search-bar-input-area);
 }
@@ -60,8 +62,8 @@
 }
 
 .search-bar-btn {
-  width: 4rem;
-  height: 3rem;
+  width: 5rem;
+  height: 4rem;
   border-radius: 4px;
   border: none;
   padding: 12px;
