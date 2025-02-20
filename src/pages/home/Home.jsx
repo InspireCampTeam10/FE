@@ -11,10 +11,9 @@ const Home = () => {
   const { setCategoryTags } = searchTagStore();
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  // const [userMessages, setUserMessages] = useState([]);
+  const [isClickedSearchBtn, setIsClickedSearchBtn] = useState(false);
 
-  const containerRef = useRef(null);
-  const messageEndRef = useRef(null);
+  const searchBarRef = useRef(null);
 
   const toggleSelectTab = (clickedTab) => {
     setSelectedTab((prev) =>
@@ -33,6 +32,7 @@ const Home = () => {
 
     setMessages((prev) => [...prev, userMessage]);
     setIsLoading(true);
+    setIsClickedSearchBtn(true);
 
     try {
       // TODO : API 호출 로직으로 변경 필요
@@ -42,7 +42,8 @@ const Home = () => {
       const aiMessage = {
         id: Date.now() + 1,
         type: "assistant",
-        content: "이것은 AI의 응답입니다...",
+        content:
+          "이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...\n이것은 AI의 응답입니다...",
       };
       setMessages((prev) => [...prev, aiMessage]);
     } finally {
@@ -50,9 +51,13 @@ const Home = () => {
     }
   };
 
+  const onClickResetBtn = () => {
+    setIsClickedSearchBtn(false);
+  };
+
   useEffect(() => {
-    if (messageEndRef.current) {
-      messageEndRef.current.scrollIntoView({
+    if (searchBarRef.current) {
+      searchBarRef.current.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -64,50 +69,45 @@ const Home = () => {
   }, [selectedTab]);
 
   return (
-    <div className="home-container" ref={containerRef}>
-      <div className="home-content-container">
-        {messages.length === 0 ? (
-          <div
-            className={`home-initial-content ${messages.length > 0 ? "slide-up" : ""}`}
-          >
-            <SelectMenu
-              toggleSelectTab={toggleSelectTab}
-              selectedTab={selectedTab}
-            />
-            <div className="content-container">
-              {(selectedTab.includes("팀 뉴스") ||
-                selectedTab.includes("경기 뉴스")) && (
-                <LeagueBoard dashboardMockData={dashboardMockData} />
-              )}
-              <Searchbar handleSearchBtn={handleSearchBtn} />
-            </div>
+    <div className="home-container">
+      <div
+        className={`home-board-content-container ${isClickedSearchBtn ? "slide-up" : "slide-down"}`}
+      >
+        <SelectMenu
+          toggleSelectTab={toggleSelectTab}
+          selectedTab={selectedTab}
+        />
+        <div className="home-board-content">
+          {(selectedTab.includes("팀 뉴스") ||
+            selectedTab.includes("경기 뉴스")) && (
+            <LeagueBoard dashboardMockData={dashboardMockData} />
+          )}
+          <Searchbar handleSearchBtn={handleSearchBtn} />
+        </div>
+      </div>
+      <div
+        className={`home-board-msg-container ${isClickedSearchBtn ? "slide-down" : "slide-up"}`}
+      >
+        <div
+          className={`home-board-msg-content ${isClickedSearchBtn ? "slide-down" : "slide-up"}`}
+        >
+          {messages.map((m, idx) =>
+            m.type === "user" ? (
+              <div key={idx}>{m.content}</div>
+            ) : (
+              <div key={idx}>{m.content}</div>
+            )
+          )}
+        </div>
+        <div
+          className={`home-board-msg-search-container ${isClickedSearchBtn ? "slide-down" : "slide-up"}`}
+          ref={searchBarRef}
+        >
+          <Searchbar handleSearchBtn={handleSearchBtn} />
+          <div className="home-board-reset-btn" onClick={onClickResetBtn}>
+            이전 페이지로
           </div>
-        ) : (
-          <>
-            <div className="home-msg-container">
-              <div className="home-msg-user">
-                {messages.map((msg) =>
-                  msg.type === "user" ? (
-                    <div key={msg.id} className={`user-message`}>
-                      {msg.content}
-                    </div>
-                  ) : (
-                    <div key={msg.id} className={`message`}>
-                      {msg.content}
-                    </div>
-                  )
-                )}
-              </div>
-              {isLoading && (
-                <div className="message-loading">
-                  답변을 생성하고 있습니다...
-                </div>
-              )}
-              <div ref={messageEndRef} />
-            </div>
-            <Searchbar handleSearchBtn={handleSearchBtn} />
-          </>
-        )}
+        </div>
       </div>
     </div>
   );
