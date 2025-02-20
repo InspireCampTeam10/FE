@@ -15,11 +15,8 @@
   display: flex;
 }
 
-.ctag-item-icon:hover {
+.ctag-item-container:hover {
   cursor: pointer;
-  background-color: var(--bg-nav-bar-hover);
-  color: var(--bg-nav-bar-primary);
-  padding: 0;
-  margin: 0;
-  border-radius: 100%;
+  background-color: var(--bg-hover-tag);
+  color: var(--bg-hover-tag-color);
 }

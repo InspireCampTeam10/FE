@@ -1,16 +1,30 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./NavigationBar.css";
 import { FiHome } from "react-icons/fi";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
 import LightMode from "./LightMode";
+import { homeStore } from "../../store/HomeStore";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { reset } = homeStore();
+
   return (
     <div className="navigation-bar-container">
       <div className="navigation-bar-content">
-        <div className="navigation-bar-tab" onClick={() => navigate("/")}>
+        <div
+          className="navigation-bar-tab"
+          onClick={() => {
+            if (location.pathname === "/") {
+              navigate(0);
+              return;
+            }
+            navigate("/", { replace: true });
+            reset();
+          }}
+        >
           <FiHome />
           <span>Home</span>
         </div>

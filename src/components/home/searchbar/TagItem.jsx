@@ -6,9 +6,9 @@ import searchTagStore from "../../../store/SearchStore";
 const TagItem = ({ tag }) => {
   const { removeTag } = searchTagStore();
   return (
-    <div className="tag-item-container">
+    <div className="tag-item-container" onClick={() => removeTag(tag)}>
       {tag}
-      <div className="tag-item-icon" onClick={() => removeTag(tag)}>
+      <div className="tag-item-icon">
         <TiDeleteOutline size={"1.3rem"} />
       </div>
     </div>
