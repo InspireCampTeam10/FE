@@ -20,8 +20,6 @@
   align-items: center;
 }
 .league-board-contents {
-  border: 1px solid var(--border-league-board);
-  border-radius: 6px;
   overflow: hidden;
   margin-bottom: 0.5rem;
   transition: height 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
@@ -33,6 +31,8 @@ table {
   margin-top: 6px;
   max-width: 800px;
   min-width: 600px;
+  border: 1px solid var(--border-league-board);
+  z-index: 100;
 }
 
 th,
@@ -99,4 +99,8 @@ tr:hover .lose {
   font-weight: bold;
   margin-bottom: 12px;
   color: var(--text-primary);
+}
+
+.league-board-arrow-btn:hover {
+  cursor: pointer;
 }
