@@ -3,8 +3,9 @@ import "./Searchbar.css";
 import TagItem from "./TagItem";
 import searchTagStore from "../../../store/SearchStore";
 import CTagItem from "./CTagItem";
+import PropTypes from "prop-types";
 
-const Searchbar = () => {
+const Searchbar = ({ handleSearchBtn }) => {
   const { tags, categoryTags } = searchTagStore();
   return (
     <div className="search-bar-container">
@@ -20,7 +21,10 @@ const Searchbar = () => {
           placeholder="추가 검색어를 입력해주세요"
         ></input>
       </div>
-      <button className="search-bar-btn">
+      <button
+        className="search-bar-btn"
+        onClick={() => handleSearchBtn("ㅁㄴㅇㄹ")}
+      >
         <BsSearch size={"1.2rem"} fontWeight={"bold"} />
       </button>
     </div>
@@ -28,3 +32,7 @@ const Searchbar = () => {
 };
 
 export default Searchbar;
+
+Searchbar.propTypes = {
+  handleSearchBtn: PropTypes.func.isRequired,
+};
