@@ -1,7 +1,17 @@
 .home-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 20px;
   flex-direction: column;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 800px; /* 테이블과 동일 */
+  min-width: 600px; /* 테이블과 동일 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

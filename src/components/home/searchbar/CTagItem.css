@@ -1,0 +1,25 @@
+.ctag-item-container {
+  padding: 6px 12px;
+  border: 1px solid var(--border-league-board);
+  border-radius: 6px;
+  font-size: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--bg-nav-bar-hover);
+  color: var(--bg-nav-bar-primary);
+}
+
+.ctag-item-icon {
+  display: flex;
+}
+
+.ctag-item-icon:hover {
+  cursor: pointer;
+  background-color: var(--bg-nav-bar-hover);
+  color: var(--bg-nav-bar-primary);
+  padding: 0;
+  margin: 0;
+  border-radius: 100%;
+}
