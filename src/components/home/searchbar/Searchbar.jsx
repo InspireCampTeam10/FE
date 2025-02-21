@@ -7,12 +7,16 @@ import PropTypes from "prop-types";
 
 const Searchbar = ({ handleSearchBtn }) => {
   const { tags, categoryTags } = searchTagStore();
+
+  const requestData = {
+    league: "프리미어 리그",
+    team: tags,
+  };
+
   return (
     <div className="search-bar-container">
       <div className="search-bar-input-container">
-        {categoryTags.map((tag, idx) => (
-          <CTagItem key={idx} tag={tag} />
-        ))}
+        {categoryTags && <CTagItem tag={categoryTags} />}
         {tags.map((tag, idx) => (
           <TagItem key={idx} tag={tag} />
         ))}
@@ -23,7 +27,7 @@ const Searchbar = ({ handleSearchBtn }) => {
       </div>
       <button
         className="search-bar-btn"
-        onClick={() => handleSearchBtn("ㅁㄴㅇㄹ")}
+        onClick={() => handleSearchBtn(requestData)}
       >
         <BsSearch size={"1.2rem"} fontWeight={"bold"} />
       </button>

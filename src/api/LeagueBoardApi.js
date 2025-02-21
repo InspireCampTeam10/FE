@@ -1,0 +1,24 @@
+import axios from "axios";
+
+export const jsonApi = axios.create({
+  baseURL: `https://${import.meta.env.VITE_REST_API_HOST}:${import.meta.env.VITE_REST_API_PORT}`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+export const getLeagueBoard = (token) =>
+  jsonApi
+    .get("/home", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => {
+      if (res.status === 200) {
+        return res.data;
+      }
+    })
+    .catch((err) => {
+      throw new Error(err.message || "리그 정보를 가져오는데 실패했습니다.");
+    });

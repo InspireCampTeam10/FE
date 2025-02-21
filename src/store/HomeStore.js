@@ -4,14 +4,14 @@ export const homeStore = create((set) => ({
   messages: [],
   userMessages: [],
   isLoading: false,
-  selectedTab: [],
+  selectedTab: "",
   reset: () =>
     set(
       {
         messages: [],
         userMessages: [],
         isLoading: false,
-        selectedTab: [],
+        selectedTab: "",
       },
       true
     ),

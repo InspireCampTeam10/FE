@@ -18,19 +18,13 @@ const SelectMenu = ({ toggleSelectTab, selectedTab }) => {
       >
         팀 뉴스
       </div>
-      <div
-        className={`select-menu-tab ${selectedTab.includes("경기 뉴스") ? "active" : ""}`}
-        onClick={() => toggleSelectTab("경기 뉴스")}
-      >
-        경기 뉴스
-      </div>
     </div>
   );
 };
 
 SelectMenu.propTypes = {
   toggleSelectTab: PropTypes.func.isRequired,
-  selectedTab: PropTypes.array.isRequired,
+  selectedTab: PropTypes.string.isRequired,
 };
 
 export default SelectMenu;
