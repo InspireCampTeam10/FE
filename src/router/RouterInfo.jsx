@@ -3,6 +3,7 @@ import DefaultLayout from "../Layout/DefaultLayout";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Profile from "../pages/profile/Profile";
+import FitNews from "../pages/fitnews/FitNews";
 
 export const routerInfo = createBrowserRouter([
   {
@@ -14,13 +15,17 @@ export const routerInfo = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/login",
-        element: <Login />,
-      },
-      {
         path: "/profile/*",
         element: <Profile />,
       },
+      {
+        path: "/fitnews",
+        element: <FitNews />,
+      },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);

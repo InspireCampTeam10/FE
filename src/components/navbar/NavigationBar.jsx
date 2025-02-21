@@ -30,7 +30,7 @@ const NavigationBar = () => {
         </div>
         <div
           className="navigation-bar-tab"
-          onClick={() => navigate("/fit-news")}
+          onClick={() => navigate("/fitnews")}
         >
           <IoNewspaperOutline />
           <span>Fit News</span>
