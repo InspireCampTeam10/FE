@@ -4,6 +4,7 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Profile from "../pages/profile/Profile";
 import FitNews from "../pages/fitnews/FitNews";
+import Signup from "../pages/signup/Signup";
 
 export const routerInfo = createBrowserRouter([
   {
@@ -27,5 +28,9 @@ export const routerInfo = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
 ]);
