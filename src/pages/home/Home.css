@@ -3,10 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1200px;
-  position: relative;
-  right: 0;
-  margin: 2rem 1rem;
+  width: 100%;
+  flex: 1;
 }
 
 .home-board-content-container {
@@ -16,66 +14,41 @@
   top: 0;
   opacity: 1;
   max-height: 2000px;
-  transition:
-    top 0.7s linear,
-    opacity 0.7s ease,
-    max-height 0.7s ease;
-}
-
-.home-board-content-container.slide-up {
-  top: -100%;
-  opacity: 0;
-  max-height: 0px;
 }
 
 .home-board-msg-container {
   display: flex;
   flex: 1;
+  width: 100%;
   flex-direction: column;
-  position: absolute;
   justify-content: space-between;
-  overflow: auto;
-  opacity: 0;
-  visibility: hidden;
   height: calc(100vh - 40px);
-  transition:
-    opacity 1s linear,
-    visibility 1s linear;
 }
 
-.home-board-msg-search-container.slide-up,
 .home-board-msg-content {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(0);
-  position: relative;
-  transition:
-    opacity 1.5s ease,
-    visibility 1.5s ease,
-    transform 1.5s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
-.home-board-msg-container.slide-down {
-  opacity: 1;
-  visibility: visible;
+.home-board-msg-user {
+  display: flex;
+  margin-left: auto;
+  background-color: #8aa8e4;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 60%;
+  animation: slide-in-right 0.3s ease;
 }
 
-.home-board-msg-search-container.slide-up,
-.home-board-msg-content.slide-down {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.home-board-msg-content.slide-up,
-.home-board-msg-search-container.slide-up {
-  visibility: hidden;
-  opacity: 0;
-  transform: translateX(-100%);
-  transition:
-    opacity 0.5s linear,
-    visibility 0.5s linear,
-    transform 0.5s linear;
+.home-board-msg-ai {
+  align-self: flex-start;
+  background-color: #e5e7eb;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 70%;
+  animation: slide-in-left 0.3s ease;
 }
 
 .home-board-reset-btn {
@@ -92,4 +65,30 @@
   cursor: pointer;
   background-color: var(--bg-nav-bar-hover);
   color: var(--bg-nav-bar-primary);
+}
+
+.home-board-msg-search-container {
+  padding-bottom: 2rem;
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

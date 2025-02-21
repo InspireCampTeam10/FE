@@ -1,11 +1,17 @@
 .default-layout-container {
   display: flex;
+  width: 100%;
 }
 
 .default-layout-contents {
-  flex: 1;
-  height: 100vh;
+  height: calc(100vh - 4rem);
   display: flex;
   justify-content: center;
   overflow: hidden;
+  flex: 1;
+  padding-left: 120px;
+  padding-right: 50px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  overflow: auto;
 }
