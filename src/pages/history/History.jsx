@@ -1,10 +1,11 @@
-import { newsMockData } from "../../mock/NewsMockData";
-import FitNewsItem from "./view/FitNewsItem";
-import "./FitNews.css";
+import "./History.css";
 import { useState } from "react";
+import HistoryItem from "./view/HistoryItem";
+import { historyStore } from "../../store/HistoryStore";
 
-const FitNews = () => {
+const History = () => {
   const [someIsClicked, setSomeIsClicked] = useState(false);
+  const { histories } = historyStore();
 
   const handleClickSomeNews = () => {
     setSomeIsClicked(true);
@@ -15,13 +16,13 @@ const FitNews = () => {
   };
 
   return (
-    <div className="fit-news-wrapper">
-      <div className="fit-news-title">Fit News</div>
-      <div className="fit-news-container">
-        {newsMockData.map((news, idx) => (
-          <FitNewsItem
+    <div className="history-wrapper">
+      <div className="history-title">My History News</div>
+      <div className="history-container">
+        {histories.map((history, idx) => (
+          <HistoryItem
             key={idx}
-            news={news}
+            history={history}
             someIsClicked={someIsClicked}
             handleClickSomeNews={handleClickSomeNews}
             handleClickBackBtn={handleClickBackBtn}
@@ -32,4 +33,4 @@ const FitNews = () => {
   );
 };
 
-export default FitNews;
+export default History;
