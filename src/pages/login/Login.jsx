@@ -61,8 +61,6 @@ return (
               <footer className="login-footer">
           <a href="#">개인정보처리방침</a>
           <a href="#">이용약관</a>
-          <a href="#">청소년 보호정책</a>
-          <a href="#">위치정보서비스 이용약관</a>
         </footer>
       </div>
     </div>
