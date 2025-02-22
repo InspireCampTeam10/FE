@@ -1,0 +1,130 @@
+.admin-m-league-wrapper {
+  display: flex;
+  width: auto;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+}
+
+.admin-m-league-content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  flex: 1;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.admin-m-league-table-content-header {
+  display: flex;
+  width: 100%;
+}
+
+.admin-m-league-table-content {
+  display: flex;
+  width: auto;
+}
+
+.admin-m-league-card-container {
+  margin: 2rem 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-m-league-content-info-card {
+  width: 150px;
+  height: 100px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 10px;
+  gap: 1rem;
+  background-color: antiquewhite;
+  justify-content: center;
+}
+
+.admin-m-league-content-info-card .title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.admin-m-league-content-info-card .number {
+  font-size: 24px;
+}
+
+.admin-m-league-table-container {
+  margin: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+.admin-m-league-table-container-content {
+  display: flex;
+  flex: 1;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.icon-button.edit {
+  color: #64748b;
+}
+
+.icon-button.delete {
+  color: #ef4444;
+}
+
+.icon-button:hover {
+  background-color: #f1f5f9;
+}
+
+.icon-button.delete:hover {
+  background-color: #fee2e2;
+}
+
+table {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  margin: 15px 0;
+  border-collapse: collapse;
+  height: 100%;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background-color: white;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-button:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}

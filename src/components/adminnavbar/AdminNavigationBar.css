@@ -1,0 +1,38 @@
+.admin-nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #363740;
+  flex: 1;
+  height: 100vh;
+  position: sticky;
+  align-items: center;
+}
+
+.admin-nav-title {
+  margin-top: 25px;
+  font-size: large;
+  color: white;
+  font-weight: bold;
+}
+
+.admin-nav-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.admin-nav-content-item {
+  width: 100%;
+  color: gray;
+  text-align: center;
+  padding: 0.7rem 0;
+}
+
+.admin-nav-content-item:hover {
+  color: white;
+  background-color: rgb(1, 1, 1);
+  border-radius: 6px;
+}

@@ -45,7 +45,7 @@ const HistoryItem = ({
                 handleBackClick(e);
               }}
             >
-              X
+              삭제하기
             </button>
           </div>
         )}
