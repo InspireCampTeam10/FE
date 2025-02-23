@@ -1,28 +1,39 @@
 .home-container {
   display: flex;
+  width: 90%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  flex: 1;
+  margin: 2rem 0;
 }
 
 .home-board-content-container {
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: 0;
-  opacity: 1;
+  justify-content: center;
   max-height: 2000px;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.home-board-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
 }
 
 .home-board-msg-container {
   display: flex;
   flex: 1;
-  width: 100%;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 40px);
+  align-items: center;
+  width: 100%;
+  gap: 4rem;
+  position: relative;
 }
 
 .home-board-msg-content {
@@ -30,12 +41,16 @@
   flex-direction: column;
   gap: 12px;
   width: 100%;
+  justify-content: center;
+  align-items: center;
+  top: 40px;
+  position: relative;
 }
 
 .home-board-msg-user {
   display: flex;
   margin-left: auto;
-  background-color: #8aa8e4;
+  background-color: var(--bg-msg-user);
   padding: 1rem;
   border-radius: 12px;
   max-width: 60%;
@@ -44,7 +59,6 @@
 
 .home-board-msg-ai {
   align-self: flex-start;
-  background-color: #e5e7eb;
   padding: 1rem;
   border-radius: 12px;
   max-width: 70%;
@@ -67,10 +81,6 @@
   color: var(--bg-nav-bar-primary);
 }
 
-.home-board-msg-search-container {
-  padding-bottom: 2rem;
-}
-
 @keyframes slide-in-right {
   from {
     opacity: 0;
@@ -91,4 +101,33 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.home-board-msg-header {
+  height: 40px;
+  left: 120px;
+  top: 0;
+  position: fixed;
+  display: flex;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+}
+
+.home-board-msg-header-back {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background-color: var(--bg-rev-primary);
+  color: var(--text-rev-primary);
+}
+
+.home-board-msg-header-back:hover {
+  background-color: var(--bg-active);
+  cursor: pointer;
 }

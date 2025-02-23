@@ -7,6 +7,7 @@ import Searchbar from "../../components/home/searchbar/Searchbar";
 import searchTagStore from "../../store/SearchStore";
 import { postSearchApi } from "../../api/SearchApi";
 import { historyStore } from "../../store/HistoryStore";
+import { IoIosArrowBack } from "react-icons/io";
 
 const Home = () => {
   const [selectedTab, setSelectedTab] = useState("");
@@ -88,6 +89,15 @@ const Home = () => {
         </div>
       ) : (
         <div className="home-board-msg-container">
+          <div className="home-board-msg-header">
+            <div
+              className="home-board-msg-header-back"
+              onClick={() => onClickResetBtn()}
+            >
+              <IoIosArrowBack size={"1.5rem"} />
+              Back
+            </div>
+          </div>
           <div className="home-board-msg-content">
             {messages.map((m, idx) =>
               m.type === "user" ? (
@@ -112,12 +122,7 @@ const Home = () => {
               )
             )}
           </div>
-          <div className="home-board-msg-search-container">
-            <Searchbar handleSearchBtn={handleSearchBtn} />
-            <div className="home-board-reset-btn" onClick={onClickResetBtn}>
-              이전 페이지로
-            </div>
-          </div>
+          <Searchbar handleSearchBtn={handleSearchBtn} />
         </div>
       )}
     </div>

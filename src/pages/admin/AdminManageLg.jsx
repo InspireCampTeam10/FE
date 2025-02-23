@@ -24,8 +24,8 @@ const AdminManageLg = () => {
                 <col width="*" />
                 <col width="15%" />
                 <col width="20%" />
-                <col width={20} />
-                <col width={20} />
+                <col width={50} />
+                <col width={70} />
               </colgroup>
               <thead>
                 <tr>

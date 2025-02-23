@@ -49,12 +49,28 @@ const HistoryItem = ({
             </button>
           </div>
         )}
-        <div className="history-item-header">
-          <span className="history-item-title">{history.title}</span>
-          <span className="history-item-date">{history.timestamp}</span>
+        <div
+          className={`history-item-header ${none ? "none" : wide ? "wide" : fold && "fold"}`}
+        >
+          <span
+            className={`history-item-title ${none ? "none" : wide ? "wide" : fold && "fold"}`}
+          >
+            {history.title}
+          </span>
+          <span
+            className={`history-item-date ${none ? "none" : wide ? "wide" : fold && "fold"}`}
+          >
+            {history.timestamp}
+          </span>
         </div>
-        <div className="history-item-body">
-          <p className="history-item-content">{history.content}</p>
+        <div
+          className={`history-item-body ${none ? "none" : wide ? "wide" : fold && "fold"}`}
+        >
+          <p
+            className={`history-item-content ${none ? "none" : wide ? "wide" : fold && "fold"}`}
+          >
+            {history.content}
+          </p>
         </div>
       </div>
     </>
