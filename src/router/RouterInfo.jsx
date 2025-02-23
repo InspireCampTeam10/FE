@@ -19,7 +19,7 @@ export const routerInfo = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/profile/*",
+        path: "/profile",
         element: <Profile />,
       },
       {

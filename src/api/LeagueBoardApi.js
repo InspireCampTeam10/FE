@@ -1,14 +1,7 @@
-import axios from "axios";
-
-export const jsonApi = axios.create({
-  baseURL: `https://${import.meta.env.VITE_REST_API_HOST}:${import.meta.env.VITE_REST_API_PORT}`,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+import { jsonAPI } from "./DefaultApi";
 
 export const getLeagueBoard = (token) =>
-  jsonApi
+  jsonAPI
     .get("/home", {
       headers: {
         Authorization: `Bearer ${token}`,

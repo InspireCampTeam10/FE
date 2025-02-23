@@ -2,17 +2,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css"; // 스타일 적용
 import { IoHome } from "react-icons/io5";
+import { login } from "../../api/SignApi";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("로그인 시도:", { email, password });
-
-    // 로그인 성공 시 홈으로 이동
+    await login(email, password);
     navigate("/");
   };
 
@@ -63,17 +62,7 @@ const Login = () => {
 
         <div className="login-links">
           <a href="/signup">회원가입</a>
-          <a href="/find-id">아이디 찾기</a>
-          <a href="/find-password">비밀번호 찾기</a>
         </div>
-
-        {/*  하단 정책 링크 */}
-        <footer className="login-footer">
-          <a href="#">개인정보처리방침</a>
-          <a href="#">이용약관</a>
-          <a href="#">청소년 보호정책</a>
-          <a href="#">위치정보서비스 이용약관</a>
-        </footer>
       </div>
     </div>
   );
