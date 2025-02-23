@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
+import { signUp } from "../../api/SignApi";
 
-const Signup = () => {
+const SignUp = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [userNickname, setUserNickName] = useState("");
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    console.log("회원가입 완료:", { email, password });
-
-    // 회원가입 완료 후 프로필 페이지로 이동
-    navigate("/profile");
+    await signUp(email, password, userNickname);
+    navigate("/");
   };
 
   return (
@@ -24,6 +24,17 @@ const Signup = () => {
         <p>회원가입을 진행해주세요.</p>
 
         <form onSubmit={handleSignup}>
+          <div className="input-group">
+            <label htmlFor="nickname">별명</label>
+            <input
+              type="text"
+              id="nickName"
+              placeholder="별명을 입력해주세요"
+              value={userNickname}
+              onChange={(e) => setUserNickName(e.target.value)}
+              required
+            />
+          </div>
           <div className="input-group">
             <label htmlFor="email">이메일</label>
             <input
@@ -60,11 +71,13 @@ const Signup = () => {
             />
           </div>
 
-          <button type="submit" className="signup-button">회원가입 완료</button>
+          <button type="submit" className="signup-button">
+            회원가입 완료
+          </button>
         </form>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default SignUp;

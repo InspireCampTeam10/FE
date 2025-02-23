@@ -11,6 +11,7 @@ const NavigationBar = () => {
   const location = useLocation();
   const { reset } = homeStore();
   const isActive = (target) => location.pathname === target;
+  const token = sessionStorage.getItem("access-token");
 
   return (
     <div className="nav-wrapper">
@@ -41,7 +42,12 @@ const NavigationBar = () => {
         <div className="nav-sys-tab-item">
           <LightMode />
         </div>
-        <div className="nav-sys-tab-item" onClick={() => navigate("/login")}>
+        <div
+          className="nav-sys-tab-item"
+          onClick={() => {
+            token ? navigate("/profile") : navigate("/login");
+          }}
+        >
           <FaRegUserCircle />
         </div>
       </div>

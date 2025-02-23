@@ -1,5 +1,4 @@
 import { newsMockData } from "../mock/NewsMockData";
-import { jsonApi } from "./LeagueBoardApi";
 
 export const getHistory = (token) => newsMockData;
 // jsonApi
