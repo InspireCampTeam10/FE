@@ -2,28 +2,42 @@ import { BsSearch } from "react-icons/bs";
 import "./Searchbar.css";
 import TagItem from "./TagItem";
 import searchTagStore from "../../../store/SearchStore";
-import CTagItem from "./CTagItem";
+
 import PropTypes from "prop-types";
+import { useRef } from "react";
 
 const Searchbar = ({ handleSearchBtn }) => {
   const { tags, categoryTags } = searchTagStore();
+  const textareaRef = useRef(null);
 
   const requestData = {
     league: "프리미어 리그",
     team: tags,
+    category: categoryTags,
+  };
+
+  const handleTextareaInput = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = "2rem";
+      textarea.style.height = textarea.scrollHeight + "px";
+    }
   };
 
   return (
-    <div className="search-bar-container">
+    <div className="search-bar-wrapper">
       <div className="search-bar-input-container">
-        {categoryTags && <CTagItem tag={categoryTags} />}
-        {tags.map((tag, idx) => (
-          <TagItem key={idx} tag={tag} />
-        ))}
-        <input
+        <div className="search-bar-tag-container">
+          {tags.map((tag, idx) => (
+            <TagItem key={idx} tag={tag} />
+          ))}
+        </div>
+        <textarea
+          ref={textareaRef}
           className="search-bar-input-area"
           placeholder="추가 검색어를 입력해주세요"
-        ></input>
+          onInput={handleTextareaInput}
+        ></textarea>
       </div>
       <button
         className="search-bar-btn"

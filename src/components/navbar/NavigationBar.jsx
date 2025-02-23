@@ -10,12 +10,13 @@ const NavigationBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { reset } = homeStore();
+  const isActive = (target) => location.pathname === target;
 
   return (
-    <div className="navigation-bar-container">
-      <div className="navigation-bar-content">
+    <div className="nav-wrapper">
+      <div className="nav-main-tab-container">
         <div
-          className="navigation-bar-tab"
+          className={`nav-main-tab-item ${isActive("/") ? "active" : ""}`}
           onClick={() => {
             if (location.pathname === "/") {
               navigate(0);
@@ -29,19 +30,18 @@ const NavigationBar = () => {
           <span>Home</span>
         </div>
         <div
-          className="navigation-bar-tab"
+          className={`nav-main-tab-item ${isActive("/history") ? "active" : ""}`}
           onClick={() => navigate("/history")}
         >
           <IoNewspaperOutline />
           <span>History</span>
         </div>
       </div>
-      <div className="navigation-bar-system">
-        <LightMode />
-        <div
-          className="navigation-bar-login-tab"
-          onClick={() => navigate("/login")}
-        >
+      <div className="nav-sys-tab-container">
+        <div className="nav-sys-tab-item">
+          <LightMode />
+        </div>
+        <div className="nav-sys-tab-item" onClick={() => navigate("/login")}>
           <FaRegUserCircle />
         </div>
       </div>

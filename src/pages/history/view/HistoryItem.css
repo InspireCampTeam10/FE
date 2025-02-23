@@ -4,10 +4,18 @@
   gap: 1rem;
   padding: 1.5rem;
   border-radius: 12px;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
-  position: relative;
+  background-color: var(--bg-history-item-fold);
+  border: 1px solid var(--border-light);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  height: 160px;
+  cursor: pointer;
+}
+
+.history-item-container:hover:not(.wide) {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .history-item-container.wide {
@@ -16,13 +24,76 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100vh;
-  margin: 0;
-  border-radius: 0;
-  padding: 2rem;
+  margin: auto;
+  width: 90%;
+  max-width: 800px;
+  height: 80vh;
+  background-color: var(--bg-history-item-fold);
   z-index: 100;
   overflow-y: auto;
-  background-color: white;
+  cursor: default;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.history-item-container-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  background-color: var(--bg-history-item-fold);
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 1rem;
+}
+
+.back-button,
+.delete-button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.5s ease;
+}
+
+.back-button {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.back-button:hover {
+  background-color: var(--bg-primary);
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: var(--bg-primary);
+  border: 1px solid #ff4444;
+  color: #ff4444;
+}
+
+.delete-button:hover {
+  background-color: #ff4444;
+  color: white;
+  cursor: pointer;
+}
+
+.history-item-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.history-item-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.history-item-date {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
 
 .history-item-container.fold {
@@ -31,82 +102,30 @@
   pointer-events: none;
 }
 
-.history-item-container:not(.wide):hover {
-  transform: translateY(-4px);
-  cursor: pointer;
-  border-color: black;
+/* 스크롤바 스타일링 */
+.history-item-container.wide::-webkit-scrollbar {
+  width: 8px;
 }
 
-.history-item-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.history-item-container.wide::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.history-item-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: var(--text-primary);
-  line-height: 1.4;
+.history-item-container.wide::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
-.history-item-date {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-}
-
-.history-item-content {
-  color: var(--text-primary);
-  line-height: 1.6;
-  margin: 0;
+.history-item-content:not(.wide) {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.history-item-container.wide .history-item-content {
-  -webkit-line-clamp: unset;
+.history-item-content.wide {
+  display: block;
+  overflow: visible;
   white-space: pre-wrap;
-  padding: 2rem 0;
-}
-
-.back-button {
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  z-index: 101;
-  margin-bottom: 1rem;
-}
-
-.back-button:hover {
-  background-color: var(--hover-bg);
-}
-
-.history-item-container-header {
-  display: flex;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-}
-
-.delete-button {
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  z-index: 101;
-  margin-bottom: 1rem;
-}
-
-.delete-button:hover {
-  background-color: var(--hover-bg-delete-btn);
-  color: white;
-}
-
-:root {
-  --hover-bg-delete-btn: red;
 }

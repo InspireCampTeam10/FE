@@ -2,20 +2,16 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-primary);
-  font-family: "NanumSquare";
+  font-family:
+    ui-sans-serif,
+    -apple-system,
+    system-ui,
+    Segoe UI,
+    Helvetica,
+    Apple Color Emoji,
+    Arial,
+    sans-serif,
+    Segoe UI Emoji,
+    Segoe UI Symbol;
   letter-spacing: -0.5px;
-}
-
-@font-face {
-  font-family: "Pretendard";
-  font-weight: normal;
-  font-style: normal;
-  src: url("./fonts/PretendardVariable.woff2") format("truetype");
-}
-
-@font-face {
-  font-family: "NanumSquare";
-  font-weight: extra-bold;
-  font-style: normal;
-  src: url("./fonts/NanumSquareNeo-Variable.ttf") format("truetype");
 }

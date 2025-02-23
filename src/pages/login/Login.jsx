@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css"; // 스타일 적용
+import { IoHome } from "react-icons/io5";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,10 +19,15 @@ const Login = () => {
   return (
     <div className="login-wrapper">
       <div className="login-container">
+        <div className="login-header">
+          <span className="login-header-back" onClick={() => navigate("/")}>
+            <IoHome size={20} />
+          </span>
+        </div>
         <h1>
-          스포츠 정보를
+          해외 축구 리포트를
           <br />
-          무료로 즐기세요!
+          AI로 받아보세요!
         </h1>
         <p className="login-subtitle">로그인을 진행해주세요.</p>
 

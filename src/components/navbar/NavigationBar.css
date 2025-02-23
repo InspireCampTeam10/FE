@@ -1,71 +1,48 @@
-.navigation-bar-container {
-  width: 6rem;
-  max-width: 70px;
-  min-width: 70px;
+.nav-wrapper {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
   justify-content: space-between;
-  height: calc(100vh - 2rem);
-  position: fixed;
-  align-items: center;
-  padding: 1rem 0;
-  background-color: var(--bg-nav-bar-primary);
-  border-right: 1px solid rgb(126, 126, 126);
-  color: var(--text-primary);
+  background-color: var(--bg-secondary);
 }
 
-.navigation-bar-content {
-  gap: 12px;
+.nav-wrapper .active {
+  background-color: var(--bg-active);
+}
+
+.nav-main-tab-container {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  gap: 0.5rem;
 }
 
-.navigation-bar-content > div {
+.nav-main-tab-item,
+.nav-sys-tab-item {
+  margin: 0.25rem 0.75rem;
+  width: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  height: 46px;
-  border-radius: 10px;
-  overflow: hidden;
-  font-size: 20px;
-  padding: 4px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-}
-
-.navigation-bar-content > div:hover {
-  background-color: var(--bg-nav-bar-hover);
-  color: var(--text-reverse-primary);
-  cursor: pointer;
-}
-.navigation-bar-content > div > span {
-  font-size: 14px;
-  padding: 0;
-}
-
-.navigation-bar-login-tab {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-size: 24px;
-  border-radius: 100%;
-  padding: 6px;
-}
-
-.navigation-bar-login-tab:hover {
-  background-color: #373737;
-  color: white;
-  cursor: pointer;
-}
-
-.navigation-bar-system {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
   justify-content: center;
   align-items: center;
+  padding: 0.75rem 0.5rem;
+  gap: 0.5rem;
+  flex-direction: column;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav-main-tab-item:hover,
+.nav-sys-tab-item:hover {
+  background-color: var(--bg-hover-primary);
+}
+
+.nav-main-tab-item svg,
+.nav-sys-tab-item svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.nav-main-tab-item span {
+  font-size: 0.875rem;
 }

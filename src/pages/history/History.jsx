@@ -18,7 +18,7 @@ const History = () => {
   return (
     <div className="history-wrapper">
       <div className="history-title">My History News</div>
-      <div className="history-container">
+      <div className={`history-container ${someIsClicked ? "overlay" : ""}`}>
         {histories.map((history, idx) => (
           <HistoryItem
             key={idx}
