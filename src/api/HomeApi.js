@@ -1,15 +1,11 @@
 import { jsonAPI } from "./DefaultApi";
 
-export const getLeagueBoard = (token) =>
+export const getLeagueBoard = () =>
   jsonAPI
-    .get("/home", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    .get("/football/home")
     .then((res) => {
       if (res.status === 200) {
-        return res.data;
+        return res.data.result;
       }
     })
     .catch((err) => {

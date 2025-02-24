@@ -2,12 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import "./Home.css";
 import SelectMenu from "./view/SelectMenu";
 import LeagueBoard from "../../components/home/leagueboard/LeagueBoard";
-import { dashboardMockData } from "../../mock/DashboardMockData";
 import Searchbar from "../../components/home/searchbar/Searchbar";
 import searchTagStore from "../../store/SearchStore";
-// import { historyStore } from "../../store/HistoryStore";
 import { IoIosArrowBack } from "react-icons/io";
 import { postSearchApi } from "../../api/SearchApi";
+import { getLeagueBoard } from "../../api/HomeApi";
 
 const Home = () => {
   const [selectedTab, setSelectedTab] = useState("");
@@ -15,8 +14,22 @@ const Home = () => {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isClickedSearchBtn, setIsClickedSearchBtn] = useState(false);
+  const [leagueBoardData, setLeagueboardData] = useState(null);
 
   const searchBarRef = useRef(null);
+
+  useEffect(() => {
+    const setLeagueBoard = async () => {
+      try {
+        const response = await getLeagueBoard();
+        setLeagueboardData(response);
+      } catch (err) {
+        throw new Error(err.messages || "리그 보드를 가져오는데 실패했습니다.");
+      }
+    };
+
+    setLeagueBoard();
+  }, []);
 
   const toggleSelectTab = (clickedTab) => {
     setSelectedTab(clickedTab);
@@ -80,7 +93,7 @@ const Home = () => {
           />
           <div className="home-board-content">
             {selectedTab.includes("팀 뉴스") && (
-              <LeagueBoard dashboardMockData={dashboardMockData} />
+              <LeagueBoard leagueBoardData={leagueBoardData} />
             )}
             <Searchbar handleSearchBtn={handleSearchBtn} />
           </div>

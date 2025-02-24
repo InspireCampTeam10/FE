@@ -6,18 +6,21 @@ const LeagueBoardItem = ({ team, handleRowClick, idx }) => {
     <tr
       className="league-board-line"
       key={team.rank}
-      onClick={(e) => handleRowClick(e, team.name, idx)}
+      onClick={(e) => handleRowClick(e, team.teamName, idx)}
     >
-      <td>{team.rank}</td>
-      <td>{team.name}</td>
+      <td>{team.ranking}</td>
+      <td className="team-info">
+        <img src={team.logo} alt={team.teamName} className="team-logo" />
+        <span>{team.teamName}</span>
+      </td>
       <td>{team.points}</td>
-      <td>{team.played}</td>
-      <td>{team.win}</td>
-      <td>{team.draw}</td>
-      <td>{team.lose}</td>
-      <td>{team.goals.for}</td>
-      <td>{team.goals.against}</td>
-      <td>{Number(team.goals.for) - Number(team.goals.against)}</td>
+      <td>{team.totalPlayed}</td>
+      <td>{team.totalWin}</td>
+      <td>{team.totalDraw}</td>
+      <td>{team.totalLose}</td>
+      <td>{team.goalFor}</td>
+      <td>{team.goalAgainst}</td>
+      <td>{team.goalDifference}</td>
       <td>
         <div className="recent-results">
           {team.form.split("").map((result, index) => (

@@ -13,11 +13,23 @@
   border: 1px solid var(--border-light);
 }
 
+.league-title-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.league-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
 .league-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-color);
-  margin-bottom: 1rem;
   display: block;
 }
 

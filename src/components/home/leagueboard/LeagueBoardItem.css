@@ -13,6 +13,19 @@
   animation-fill-mode: forwards;
 }
 
+.team-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: auto;
+}
+
+.team-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(-20px);

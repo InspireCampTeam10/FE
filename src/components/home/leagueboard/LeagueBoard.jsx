@@ -5,8 +5,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import LeagueBoardItem from "./LeagueBoardItem";
 import searchTagStore from "../../../store/SearchStore";
 
-const LeagueBoard = ({ dashboardMockData }) => {
-  // isOpen = "wide" or "fold"
+const LeagueBoard = ({ leagueBoardData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const tableRef = useRef(null);
   const [tableHeight, setTableHeight] = useState(250);
@@ -38,7 +37,14 @@ const LeagueBoard = ({ dashboardMockData }) => {
   return (
     <>
       <div className="league-board-container" id="league-board">
-        <span className="league-title">{dashboardMockData.league}</span>
+        <div className="league-title-container">
+          <img
+            src={leagueBoardData.leagueLogo}
+            alt={leagueBoardData.leagueName}
+            className="league-logo"
+          />
+          <span className="league-title">{leagueBoardData.leagueName}</span>
+        </div>
         <div
           ref={tableRef}
           className={`league-board-contents ${isOpen ? "wide" : "fold"}`}
@@ -60,7 +66,7 @@ const LeagueBoard = ({ dashboardMockData }) => {
             <thead>
               <tr>
                 <th scope="col">순위</th>
-                <th scope="col">팀명</th>
+                <th scope="col">팀</th>
                 <th scope="col">승점</th>
                 <th scope="col">경기</th>
                 <th scope="col">승</th>
@@ -73,7 +79,7 @@ const LeagueBoard = ({ dashboardMockData }) => {
               </tr>
             </thead>
             <tbody>
-              {dashboardMockData.teams.map((team, idx) => (
+              {leagueBoardData.standingResponseDTOList.map((team, idx) => (
                 <LeagueBoardItem
                   key={idx}
                   idx={idx}
@@ -146,5 +152,5 @@ const LeagueBoard = ({ dashboardMockData }) => {
 export default LeagueBoard;
 
 LeagueBoard.propTypes = {
-  dashboardMockData: PropTypes.object.isRequired,
+  leagueBoardData: PropTypes.object.isRequired,
 };
