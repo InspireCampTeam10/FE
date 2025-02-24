@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
+import { useUserInfo } from "../../hooks/useUserInfo";
+import { updateUserInfo } from "../../api/ProfileApi";
 
 const Profile = () => {
   const [profileImage, setProfileImage] = useState(null);
-  const [accountId, setAccountId] = useState("");
-  const [username, setUsername] = useState("");
+  const { username, nickName, handleLogout } = useUserInfo();
+  const [updateNickName, setUpdateNickName] = useState(nickName);
+  const isActive = nickName !== updateNickName;
+  const [isUpdate, setIsUpdate] = useState({ isActive: false, message: "" });
   const navigate = useNavigate();
 
   const handleImageChange = (event) => {
@@ -15,16 +19,28 @@ const Profile = () => {
     }
   };
 
-  const handleStart = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
-    if (username && accountId) {
-      navigate("/");
+
+    try {
+      const response = await updateUserInfo({ username, updateNickName });
+      if (response) {
+        setIsUpdate({ isActive: true, message: "정상적으로 변경되었습니다." });
+        return;
+      }
+      setIsUpdate({
+        isActive: false,
+        message: "변경에 실패했습니다. \n 다시 시도해주세요",
+      });
+    } catch (err) {
+      throw new Error(err);
     }
   };
 
   return (
     <div className="profile-wrapper">
       <div className="profile-container">
+        <div onClick={handleLogout}>로그아웃</div>
         <h2>프로필 설정</h2>
         <p>나중에 언제든지 변경할 수 있습니다.</p>
 
@@ -48,39 +64,48 @@ const Profile = () => {
         </div>
 
         {/* 🔹 사용자 정보 입력 */}
-        <form onSubmit={handleStart}>
+        <div className="profile-currnet-id">
+          <label>계정 ID</label>
+          <span>{username}</span>
+        </div>
+        <form onSubmit={handleUpdate}>
           <div className="input-group">
             <label>사용자 이름</label>
             <input
               type="text"
               placeholder="2~10자 이내여야 합니다."
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={updateNickName}
+              onChange={(e) => setUpdateNickName(e.target.value)}
               required
             />
           </div>
-
-          <div className="input-group">
-            <label>계정 ID</label>
-            <input
-              type="text"
-              placeholder="영문, 숫자, 특수문자(_.)만 사용 가능합니다."
-              value={accountId}
-              onChange={(e) => setAccountId(e.target.value)}
-              required
-            />
-          </div>
-
-          {/* 🔹 "시작하기" 버튼 - 비활성화/활성화 기능 포함 */}
           <button
             type="submit"
-            className={`profile-button ${username && accountId ? "active" : ""}`}
-            disabled={!username || !accountId}
+            className={`profile-button ${isActive ? "active" : ""}`}
           >
             수정하기
           </button>
         </form>
       </div>
+      {isUpdate.isActive && (
+        <>
+          <div
+            className="profile-msg-box-overlay"
+            onClick={() =>
+              setIsUpdate((prev) => {
+                return { ...prev, isActive: false };
+              })
+            }
+          ></div>
+          <div className="profile-msg-box-container">
+            <div className="profile-msg-title">작업 결과</div>
+            <div className="profile-msg-content">{isUpdate.message}</div>
+            <button className="profile-msg-close" onClick={() => {}}>
+              확인
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -114,3 +114,65 @@
     font-size: 14px;
   }
 }
+.profile-msg-box-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  min-height: 150px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.profile-msg-box-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: fadeIn 0.2s ease;
+}
+
+.profile-msg-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.profile-msg-content {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.profile-msg-close {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.profile-currnet-id {
+  display: flex;
+  font-weight: 500;
+  gap: 1rem;
+  border: 1px solid var(--border-light);
+  padding: 1rem 0;
+  border-radius: 6px;
+  font-size: 14px;
+}
