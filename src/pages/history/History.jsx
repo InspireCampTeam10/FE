@@ -20,7 +20,10 @@ const History = () => {
     const fetchHistory = async () => {
       try {
         const response = await getHistory();
-        console.log("여기로 넘어오는 데이터 : ", response);
+        if (!response) {
+          setHistoryArr("");
+          return;
+        }
         setHistoryArr(response);
       } catch (err) {
         console.error("History를 가져오는데 실패했습니다:", err);

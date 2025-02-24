@@ -5,7 +5,6 @@ import { signUp } from "../../api/SignApi";
 
 const SignUp = () => {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -78,4 +77,5 @@ const SignUp = () => {
     </div>
   );
 };
+
 export default SignUp;

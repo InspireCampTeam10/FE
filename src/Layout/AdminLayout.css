@@ -9,31 +9,32 @@
 
 .admin-layout-content {
   display: flex;
-  flex: 1;
+  width: calc(90% - 120px);
+  height: 100%;
+  margin: 1rem auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: calc(100% - 120px);
 }
 
 .admin-header {
   width: 100%;
-  justify-content: space-between;
-  display: flex;
   height: 70px;
+  margin: 1rem 0;
+  justify-content: space-between;
   align-items: center;
+  display: flex;
+  flex: 1;
   background-color: white;
-  overflow: hidden;
   flex-shrink: 0;
 }
 
 .header-hello {
   font-weight: bold;
-  margin-left: 1rem;
 }
 
-.header-login {
+.header-logout {
   display: flex;
   justify-content: flex-end;
-  margin-right: 1rem;
+  cursor: pointer;
 }
