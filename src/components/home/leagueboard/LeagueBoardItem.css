@@ -13,6 +13,51 @@
   animation-fill-mode: forwards;
 }
 
+.team-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.team-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.team-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.team-rank {
+  position: relative;
+  padding-left: 8px; /* 왼쪽에 여백 추가 */
+}
+
+.team-rank.champions-league::before,
+.team-rank.europa-league::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 3px;
+  border-radius: 2px; /* 모서리를 둥글게 */
+}
+
+.team-rank.champions-league::before {
+  background-color: #ff0000;
+}
+
+.team-rank.europa-league::before {
+  background-color: #ffd700;
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(-20px);
