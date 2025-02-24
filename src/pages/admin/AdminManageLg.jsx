@@ -5,16 +5,8 @@ const AdminManageLg = () => {
   return (
     <div className="admin-m-league-wrapper">
       <div className="admin-m-league-content">
-        <div className="admin-m-league-card-container">
-          <div className="admin-m-league-content-info-card">
-            <span className="title">등록된 리그</span>
-            <span className="number">1</span>
-          </div>
-        </div>
         <div className="admin-m-league-table-container">
-          <div className="admin-m-league-table-content-header">
-            {/* <button className="filter-button">Filter</button> */}
-          </div>
+          <div className="admin-m-league-table-content-header"></div>
           <div className="admin-m-league-table-content">
             <table>
               <colgroup>

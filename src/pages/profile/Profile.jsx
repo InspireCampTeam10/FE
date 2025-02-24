@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 
 const Profile = () => {
-<<<<<<< HEAD
   const [profileImage, setProfileImage] = useState(null);
   const [bio, setBio] = useState("");
   const [username, setUsername] = useState("");
@@ -96,9 +95,6 @@ const Profile = () => {
       </div>
     </div>
   );
-=======
-  return <div>프로필 페이지</div>;
->>>>>>> 5e72bda28cbd59bfd922d28e310b1a9001b5f9ec
 };
 
 export default Profile;

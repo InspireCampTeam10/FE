@@ -16,42 +16,10 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.admin-m-league-card-container {
-  padding: 2rem;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.admin-m-league-content-info-card {
-  width: 200px;
-  height: 120px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem;
-  gap: 1rem;
-  color: black;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.admin-m-league-content-info-card .title {
-  font-weight: 500;
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-.admin-m-league-content-info-card .number {
-  font-size: 2.5rem;
-  font-weight: 600;
-}
-
 .admin-m-league-table-container {
   padding: 0 2rem 2rem 2rem;
 }
 
-/* 테이블 스타일링 */
 table {
   width: 100%;
   border-collapse: separate;
@@ -76,24 +44,20 @@ td {
   color: #334155;
 }
 
-/* 체크박스 중앙 정렬 */
 th:first-child,
 td:first-child {
   text-align: center;
 }
 
-/* 번호 중앙 정렬 */
 th:nth-child(2),
 td:nth-child(2) {
   text-align: center;
 }
 
-/* 테이블 행 호버 효과 */
 tbody tr:hover {
   background-color: #f8fafc;
 }
 
-/* 체크박스 스타일링 */
 input[type="checkbox"] {
   width: 16px;
   height: 16px;
@@ -111,7 +75,6 @@ input[type="checkbox"]:checked {
   border-color: #4f46e5;
 }
 
-/* 버튼 스타일링 */
 .icon-button {
   display: flex;
   align-items: center;
@@ -141,7 +104,6 @@ input[type="checkbox"]:checked {
   background-color: #fee2e2;
 }
 
-/* 아이콘 크기 조정 */
 .icon-button svg {
   width: 18px;
   height: 18px;

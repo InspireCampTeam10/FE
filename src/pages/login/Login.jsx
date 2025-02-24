@@ -63,25 +63,6 @@ const Login = () => {
         <div className="login-links">
           <a href="/signup">회원가입</a>
         </div>
-<<<<<<< HEAD
-
-        <button type="submit" className="login-button">로그인</button>
-      </form>
-
-      <div className="login-links">
-        <a href="/signup">회원가입</a>
-        <a href="/find-id">아이디 찾기</a>
-        <a href="/find-password">비밀번호 찾기</a>
-      </div>
-
-
-              {/*  하단 정책 링크 */}
-              <footer className="login-footer">
-          <a href="#">개인정보처리방침</a>
-          <a href="#">이용약관</a>
-        </footer>
-=======
->>>>>>> 5e72bda28cbd59bfd922d28e310b1a9001b5f9ec
       </div>
     </div>
   );
