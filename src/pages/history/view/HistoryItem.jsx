@@ -69,7 +69,7 @@ const HistoryItem = ({
           <p
             className={`history-item-content ${none ? "none" : wide ? "wide" : fold && "fold"}`}
           >
-            {history.content}
+            {history.summary}
           </p>
         </div>
       </div>

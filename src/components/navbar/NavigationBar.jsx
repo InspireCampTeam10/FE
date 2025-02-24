@@ -45,7 +45,11 @@ const NavigationBar = () => {
         <div
           className="nav-sys-tab-item"
           onClick={() => {
-            token ? navigate("/profile") : navigate("/login");
+            if (token && token !== "undefined") {
+              navigate("/profile");
+            } else {
+              navigate("/login");
+            }
           }}
         >
           <FaRegUserCircle />

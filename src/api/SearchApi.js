@@ -1,38 +1,13 @@
-/**
- * @typedef {Object} SearchRequest
- * @property {string[]} keyword
- */
+import { jsonAPI } from "./DefaultApi";
 
-/**
- * @typedef {Object} SearchResponse
- * @property {string} title - 기사 제목
- * @property {string} summary - 기사 요약
- * @property {string} new_link - 기사 링크
- */
-
-/**
- * @param {SearchRequest} data - Request 데이터 타입
- * @returns {Promise<SearchResponse>} 검색 결과
- * @throws {Error} API 요청 실패 시 에러
- */
-export const postSearchApi = (data) => {
-  return {
-    id: 1231424,
-    title: "제목",
-    content: "컨텐츠",
-    timestamp: "시간",
-  };
-};
-
-// jsonApi
-//   .post("/search", data, {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   })
-//   .then((res) => {
-//     if (res.status === 200) return res.data;
-//   })
-//   .catch((err) => {
-//     throw new Error(err.message || "검색 답변을 가져오는데 실패했습니다.");
-//   });
+export const postSearchApi = (keywords) =>
+  jsonAPI
+    .post("openai/search", { keywords })
+    .then((res) => {
+      if (res.status === 200) {
+        return res.data.result[0].news[0];
+      }
+    })
+    .catch((err) => {
+      throw new Error(err.message || "검색에 실패했습니다.");
+    });
