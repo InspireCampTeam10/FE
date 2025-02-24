@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 
 const Profile = () => {
-<<<<<<< HEAD
   const [profileImage, setProfileImage] = useState(null);
-  const [bio, setBio] = useState("");
-  const [username, setUsername] = useState("");
   const [accountId, setAccountId] = useState("");
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const handleImageChange = (event) => {
@@ -18,9 +16,8 @@ const Profile = () => {
   };
 
   const handleStart = (e) => {
-    e.preventDefault(); // 폼 제출 시 새로고침 방지
+    e.preventDefault();
     if (username && accountId) {
-      console.log("프로필 설정 완료! 홈으로 이동합니다.");
       navigate("/");
     }
   };
@@ -74,31 +71,18 @@ const Profile = () => {
             />
           </div>
 
-          <div className="input-group">
-            <label htmlFor="bio">소개</label>
-            <textarea
-              id="bio"
-              placeholder="자신에 대해 소개해 주세요!"
-              value={bio}
-              onChange={(e) => setBio(e.target.value)}
-            ></textarea>
-          </div>
-
           {/* 🔹 "시작하기" 버튼 - 비활성화/활성화 기능 포함 */}
           <button
             type="submit"
             className={`profile-button ${username && accountId ? "active" : ""}`}
             disabled={!username || !accountId}
           >
-            시작하기
+            수정하기
           </button>
         </form>
       </div>
     </div>
   );
-=======
-  return <div>프로필 페이지</div>;
->>>>>>> 5e72bda28cbd59bfd922d28e310b1a9001b5f9ec
 };
 
 export default Profile;
