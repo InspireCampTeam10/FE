@@ -1,51 +1,69 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css"; // 스타일 적용
+import { IoHome } from "react-icons/io5";
+import { login } from "../../api/SignApi";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("로그인 시도:", { email, password });
-
-    // 로그인 성공 시 홈으로 이동
+    await login(email, password);
     navigate("/");
   };
 
-
-return (
-  <div className="login-wrapper">
-    <div className="login-container">
-      <h1>스포츠 정보를<br />무료로 즐기세요!</h1>
-      <p className="login-subtitle">로그인을 진행해주세요.</p>
-
-      <form onSubmit={handleLogin}>
-        <div className="input-group">
-          <label htmlFor="email">이메일</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="이메일을 입력해 주세요"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+  return (
+    <div className="login-wrapper">
+      <div className="login-container">
+        <div className="login-header">
+          <span className="login-header-back" onClick={() => navigate("/")}>
+            <IoHome size={20} />
+          </span>
         </div>
+        <h1>
+          해외 축구 리포트를
+          <br />
+          AI로 받아보세요!
+        </h1>
+        <p className="login-subtitle">로그인을 진행해주세요.</p>
 
-        <div className="input-group">
-          <label htmlFor="password">비밀번호</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="비밀번호를 입력해 주세요"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <form onSubmit={handleLogin}>
+          <div className="input-group">
+            <label htmlFor="email">이메일</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="이메일을 입력해 주세요"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="password">비밀번호</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="비밀번호를 입력해 주세요"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" className="login-button">
+            로그인
+          </button>
+        </form>
+
+        <div className="login-links">
+          <a href="/signup">회원가입</a>
         </div>
+<<<<<<< HEAD
 
         <button type="submit" className="login-button">로그인</button>
       </form>
@@ -62,6 +80,8 @@ return (
           <a href="#">개인정보처리방침</a>
           <a href="#">이용약관</a>
         </footer>
+=======
+>>>>>>> 5e72bda28cbd59bfd922d28e310b1a9001b5f9ec
       </div>
     </div>
   );

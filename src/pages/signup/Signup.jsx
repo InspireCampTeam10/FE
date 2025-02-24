@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
+<<<<<<< HEAD
 
 const Signup = () => {
+=======
+import { signUp } from "../../api/SignApi";
+
+const SignUp = () => {
+>>>>>>> 5e72bda28cbd59bfd922d28e310b1a9001b5f9ec
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+<<<<<<< HEAD
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -15,6 +22,14 @@ const Signup = () => {
 
     // 회원가입 완료 후 프로필 페이지로 이동
     navigate("/profile");
+=======
+  const [userNickname, setUserNickName] = useState("");
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    await signUp(email, password, userNickname);
+    navigate("/");
+>>>>>>> 5e72bda28cbd59bfd922d28e310b1a9001b5f9ec
   };
 
   return (
@@ -25,6 +40,20 @@ const Signup = () => {
 
         <form onSubmit={handleSignup}>
           <div className="input-group">
+<<<<<<< HEAD
+=======
+            <label htmlFor="nickname">별명</label>
+            <input
+              type="text"
+              id="nickName"
+              placeholder="별명을 입력해주세요"
+              value={userNickname}
+              onChange={(e) => setUserNickName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+>>>>>>> 5e72bda28cbd59bfd922d28e310b1a9001b5f9ec
             <label htmlFor="email">이메일</label>
             <input
               type="email"
@@ -60,11 +89,21 @@ const Signup = () => {
             />
           </div>
 
+<<<<<<< HEAD
           <button type="submit" className="signup-button">회원가입 완료</button>
+=======
+          <button type="submit" className="signup-button">
+            회원가입 완료
+          </button>
+>>>>>>> 5e72bda28cbd59bfd922d28e310b1a9001b5f9ec
         </form>
       </div>
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default Signup;
+=======
+export default SignUp;
+>>>>>>> 5e72bda28cbd59bfd922d28e310b1a9001b5f9ec

@@ -5,10 +5,12 @@ import "./DefaultLayout.css";
 const DefaultLayout = () => {
   return (
     <div className="default-layout-container">
-      <NavigationBar />
-      <main className="default-layout-contents">
+      <div className="default-layout-navigation">
+        <NavigationBar />
+      </div>
+      <div className="default-layout-contents">
         <Outlet />
-      </main>
+      </div>
     </div>
   );
 };

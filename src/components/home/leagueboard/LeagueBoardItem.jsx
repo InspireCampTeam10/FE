@@ -19,11 +19,11 @@ const LeagueBoardItem = ({ team, handleRowClick, idx }) => {
       <td>{team.goals.against}</td>
       <td>{Number(team.goals.for) - Number(team.goals.against)}</td>
       <td>
-        <div className="form-container">
+        <div className="recent-results">
           {team.form.split("").map((result, index) => (
             <span
               key={index}
-              className={`form-result ${
+              className={`result-item ${
                 result === "W" ? "win" : result === "D" ? "draw" : "lose"
               }`}
             >

@@ -19,8 +19,8 @@ const LeagueBoard = ({ dashboardMockData }) => {
     setShowButtons(true);
 
     const tr = e.currentTarget;
-    const lastTd = tr.lastElementChild;
-    const rect = lastTd.getBoundingClientRect();
+    const secondId = tr.children[1];
+    const rect = secondId.getBoundingClientRect();
 
     setButtonPosition({
       x: rect.right,
@@ -45,19 +45,31 @@ const LeagueBoard = ({ dashboardMockData }) => {
           style={{ height: isOpen ? `${tableHeight}px` : "250px" }}
         >
           <table>
+            <colgroup>
+              <col width={70} />
+              <col width="*" />
+              <col width={70} />
+              <col width={70} />
+              <col width={70} />
+              <col width={70} />
+              <col width={70} />
+              <col width={70} />
+              <col width={70} />
+              <col width="10%" />
+            </colgroup>
             <thead>
               <tr>
-                <th>순위</th>
-                <th>팀명</th>
-                <th>승점</th>
-                <th>경기</th>
-                <th>승</th>
-                <th>무</th>
-                <th>패</th>
-                <th>득점</th>
-                <th>실점</th>
-                <th>득실</th>
-                <th>최근 5경기</th>
+                <th scope="col">순위</th>
+                <th scope="col">팀명</th>
+                <th scope="col">승점</th>
+                <th scope="col">경기</th>
+                <th scope="col">승</th>
+                <th scope="col">무</th>
+                <th scope="col">패</th>
+                <th scope="col">득점</th>
+                <th scope="col">실점</th>
+                <th scope="col">득실</th>
+                <th scope="col">최근 5경기</th>
               </tr>
             </thead>
             <tbody>
@@ -73,23 +85,24 @@ const LeagueBoard = ({ dashboardMockData }) => {
           </table>
         </div>
         {isOpen ? (
-          <div className="league-board-arrow-btn">
-            <IoIosArrowUp
-              onClick={() => {
-                setIsOpen(false);
-                setShowButtons(false);
-              }}
-              size={32}
-              style={{ color: "var(--text-primary)" }}
-            />
+          <div
+            className="league-board-arrow-btn"
+            onClick={() => {
+              setIsOpen(false);
+              setShowButtons(false);
+            }}
+          >
+            <IoIosArrowUp size={32} style={{ color: "var(--text-primary)" }} />
           </div>
         ) : (
-          <div className="league-board-arrow-btn">
+          <div
+            className="league-board-arrow-btn"
+            onClick={() => {
+              setIsOpen(true);
+              setShowButtons(false);
+            }}
+          >
             <IoIosArrowDown
-              onClick={() => {
-                setIsOpen(true);
-                setShowButtons(false);
-              }}
               size={32}
               style={{ color: "var(--text-primary)" }}
             />

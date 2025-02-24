@@ -7,7 +7,7 @@ const TagItem = ({ tag }) => {
   const { removeTag } = searchTagStore();
   return (
     <div className="tag-item-container" onClick={() => removeTag(tag)}>
-      {tag}
+      <span>{tag}</span>
       <div className="tag-item-icon">
         <TiDeleteOutline size={"1.3rem"} />
       </div>
