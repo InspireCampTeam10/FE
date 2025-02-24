@@ -8,10 +8,14 @@ const LeagueBoardItem = ({ team, handleRowClick, idx }) => {
       key={team.rank}
       onClick={(e) => handleRowClick(e, team.teamName, idx)}
     >
-      <td>{team.ranking}</td>
+      <td
+        className={`team-rank  ${team.description === "Champions League" ? "champions-league" : team.description === "UEFA Europa League" ? "europa-league" : ""}`}
+      >
+        {team.ranking}
+      </td>
       <td className="team-info">
         <img src={team.logo} alt={team.teamName} className="team-logo" />
-        <span>{team.teamName}</span>
+        <span className="team-name">{team.teamName}</span>
       </td>
       <td>{team.points}</td>
       <td>{team.totalPlayed}</td>
