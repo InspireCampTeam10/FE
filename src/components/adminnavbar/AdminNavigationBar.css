@@ -1,11 +1,11 @@
 .admin-nav-wrapper {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 120px;
   background-color: #363740;
   flex: 1;
   height: 100vh;
-  position: sticky;
+  position: fixed;
   align-items: center;
 }
 

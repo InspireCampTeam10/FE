@@ -9,6 +9,7 @@ export const getHistory = () =>
       if (res.status === 200) {
         return res.data.result;
       }
+      return false;
     })
     .catch((err) => {
       throw new Error(
