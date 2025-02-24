@@ -5,8 +5,8 @@ export const login = (email, password) =>
     .post("/user/login", { username: email, password })
     .then((res) => {
       if (res.status === 200) {
-        console.log("login API 결과  :", res.data);
-        sessionStorage.setItem("access-token", res.data.token);
+        const token = res.headers.get("Authorization")?.replace("Bearer ", "");
+        sessionStorage.setItem("access-token", token);
       }
     })
     .catch((err) => {
@@ -22,7 +22,8 @@ export const signUp = (email, password, userNickname) =>
     })
     .then((res) => {
       if (res.status === 200) {
-        console.log("signUp 결과 ", res.data);
+        console.log(res.data);
+        sessionStorage.setItem("access-token", res.data.result.token);
       }
     })
     .catch((err) => {

@@ -1,11 +1,12 @@
 import "./History.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HistoryItem from "./view/HistoryItem";
 import { historyStore } from "../../store/HistoryStore";
+import { getHistory } from "../../api/HistoryApi";
 
 const History = () => {
   const [someIsClicked, setSomeIsClicked] = useState(false);
-  const { histories } = historyStore();
+  const { histories, setHistoryArr } = historyStore();
 
   const handleClickSomeNews = () => {
     setSomeIsClicked(true);
@@ -14,6 +15,20 @@ const History = () => {
   const handleClickBackBtn = () => {
     setSomeIsClicked(false);
   };
+
+  useEffect(() => {
+    const fetchHistory = async () => {
+      try {
+        const response = await getHistory();
+        console.log("여기로 넘어오는 데이터 : ", response);
+        setHistoryArr(response);
+      } catch (err) {
+        console.error("History를 가져오는데 실패했습니다:", err);
+      }
+    };
+
+    fetchHistory();
+  }, []);
 
   return (
     <div className="history-wrapper">
