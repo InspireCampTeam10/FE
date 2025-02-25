@@ -1,24 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import { useUserInfo } from "../../hooks/useUserInfo";
-import { updateUserInfo } from "../../api/ProfileApi";
+import { updateProfileImage, updateUserInfo } from "../../api/ProfileApi";
 
 const Profile = () => {
   const [profileImage, setProfileImage] = useState(null);
-  const { username, nickName, handleLogout } = useUserInfo();
+  const { username, nickName, imgUrl, handleLogout } = useUserInfo();
   const [updateNickName, setUpdateNickName] = useState(nickName);
   const isActive = nickName !== updateNickName;
   const [isUpdate, setIsUpdate] = useState({ isActive: false, message: "" });
   const navigate = useNavigate();
 
+  console.log("imgUrl : ", imgUrl);
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       setProfileImage(URL.createObjectURL(file));
+      updateProfileImage(username, file);
     }
   };
-
   const handleUpdate = async (e) => {
     e.preventDefault();
 
@@ -37,6 +39,10 @@ const Profile = () => {
     }
   };
 
+  useEffect(() => {
+    setProfileImage(imgUrl);
+  }, [imgUrl]);
+
   return (
     <div className="profile-wrapper">
       <div className="profile-container">
@@ -52,13 +58,13 @@ const Profile = () => {
               alt="프로필"
               className="profile-image"
             />
-            <span className="profile-upload-icon">📷</span>
           </label>
           <input
             type="file"
             id="profile-upload"
             accept="image/*"
             onChange={handleImageChange}
+            className="profile-image-container"
             style={{ display: "none" }}
           />
         </div>
