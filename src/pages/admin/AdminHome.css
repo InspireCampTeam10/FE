@@ -103,20 +103,6 @@
   color: #4b5563;
 }
 
-.admin-info {
-  background-color: #f0f9ff;
-  border-left: 4px solid #3b82f6;
-  padding: 1rem;
-  border-radius: 4px;
-  margin-top: 1rem;
-}
-
-.admin-info p {
-  color: #1e40af;
-  font-size: 0.9rem;
-  margin: 0;
-}
-
 @media (max-width: 768px) {
   .admin-card-container {
     grid-template-columns: 1fr;

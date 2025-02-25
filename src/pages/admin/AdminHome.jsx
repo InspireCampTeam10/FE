@@ -114,49 +114,6 @@ const AdminHome = () => {
           </button>
         </div>
       </div>
-      <h1 className="admin-title">관리자 조회</h1>
-      <div className="admin-card-container">
-        <div className="admin-card">
-          <h2>리그 정보 조회</h2>
-          <p className="admin-content">현재 등록된 리그 정보를 조회합니다.</p>
-          <button
-            className="admin-button"
-            onClick={handleViewLeague}
-            disabled={loading}
-          >
-            {loading ? "조회 중..." : "조회"}
-          </button>
-        </div>
-        <div className="admin-card">
-          <h2>팀 정보 조회</h2>
-          <p className="admin-content">
-            팀 아이디를 입력하여 해당 팀의 정보를 조회합니다.
-          </p>
-          <div className="admin-form-group">
-            <label htmlFor="teamIdQuery">팀 ID</label>
-            <input
-              id="teamIdQuery"
-              className="admin-input"
-              value={teamId}
-              onChange={(e) => setTeamId(e.target.value)}
-              placeholder="팀 아이디를 입력해주세요"
-            />
-          </div>
-          <button
-            className="admin-button"
-            onClick={handleViewTeam}
-            disabled={loading}
-          >
-            {loading ? "조회 중..." : "조회"}
-          </button>
-        </div>
-      </div>
-      <div className="admin-info">
-        <p>
-          ※ 데이터 변경 시 주의: 리그와 팀 정보를 정확하게 입력해주세요. 잘못된
-          정보는 통계 데이터에 영향을 줄 수 있습니다.
-        </p>
-      </div>
       {msgBoxShow && (
         <>
           <div
