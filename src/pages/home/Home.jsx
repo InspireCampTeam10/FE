@@ -7,6 +7,7 @@ import searchTagStore from "../../store/SearchStore";
 import { IoIosArrowBack } from "react-icons/io";
 import { postSearchApi } from "../../api/SearchApi";
 import { getLeagueBoard } from "../../api/HomeApi";
+import Loading from "../../components/loading/Loading";
 
 const Home = () => {
   const [selectedTab, setSelectedTab] = useState("");
@@ -119,16 +120,17 @@ const Home = () => {
                 >
                   {m.content}
                 </div>
-              ) : (
+              ) : m.type === "assistant" ? (
                 <div className="home-board-msg-ai" key={idx}>
-                  {
-                    <div key={idx}>
-                      <span>{m.news.title}</span>
-                      <p>{m.news.content}</p>
-                    </div>
-                  }
+                  <span>{m.news.title}</span>
+                  <p>{m.news.content}</p>
                 </div>
-              )
+              ) : null
+            )}
+            {isLoading && (
+              <div className="home-board-msg-ai">
+                <Loading text="답변을 생성하는 중입니다." />
+              </div>
             )}
           </div>
           <Searchbar handleSearchBtn={handleSearchBtn} />

@@ -39,7 +39,7 @@
 .home-board-msg-content {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.5rem;
   width: 100%;
   justify-content: center;
   align-items: center;

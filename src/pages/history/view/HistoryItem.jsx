@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import "./HistoryItem.css";
 import { useState } from "react";
 import { historyStore } from "../../../store/HistoryStore";
+import { TimeUtils } from "../../../util/TimeUtils";
 
 const HistoryItem = ({
   history,
@@ -60,7 +61,7 @@ const HistoryItem = ({
           <span
             className={`history-item-date ${none ? "none" : wide ? "wide" : fold && "fold"}`}
           >
-            {history.timestamp}
+            {[...TimeUtils.parseStampToLocal(history.timestamp)]}
           </span>
         </div>
         <div
