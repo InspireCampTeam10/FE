@@ -1,11 +1,12 @@
 .history-wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
   padding: 2rem;
   gap: 2rem;
   height: 100%;
   overflow: auto;
+  width: 100%; /* 명시적으로 너비 지정 */
+  box-sizing: border-box; /* 패딩을 포함한 전체 너비 계산 */
 }
 
 .history-container {

@@ -6,9 +6,8 @@ export const useUserInfo = () => {
   const token = sessionStorage.getItem("access-token");
   const [isTokenExist, setIsTokenExist] = useState(token && true);
   const decoded = jwtDecode(token);
-  const [username, setUsername] = useState(decoded.username);
-  const [nickName, setNickName] = useState(decoded.nickname);
-  const role = decoded.role;
+  const { username, nickname, imgUrl, role } = decoded;
+  const [upNickName, setUpNickName] = useState(nickname);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -17,22 +16,19 @@ export const useUserInfo = () => {
     setIsTokenExist(token && true);
   };
 
-  const handleUpdateUsername = (updateUsername) => {
-    setUsername(updateUsername);
-  };
-
   const handleUpdateNickName = (updateNickName) => {
-    setNickName(updateNickName);
+    setUpNickName(updateNickName);
   };
 
   return {
     token,
     isTokenExist,
     username,
-    nickName,
+    nickname,
+    imgUrl,
+    upNickName,
     role,
     handleLogout,
-    handleUpdateUsername,
     handleUpdateNickName,
   };
 };
