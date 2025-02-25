@@ -61,7 +61,7 @@ const HistoryItem = ({
           <span
             className={`history-item-date ${none ? "none" : wide ? "wide" : fold && "fold"}`}
           >
-            {[...TimeUtils.parseStampToLocal(history.timestamp)]}
+            {TimeUtils.parseStampToLocal(history.timestamp)}
           </span>
         </div>
         <div
