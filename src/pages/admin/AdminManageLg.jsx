@@ -1,7 +1,19 @@
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import "./AdminManageLg.css";
+import { useEffect, useState } from "react";
+import { viewFootballLeague } from "../../api/AdminApi";
 
 const AdminManageLg = () => {
+  const [leagueInfos, setleagueInfos] = useState([]);
+
+  useEffect(() => {
+    const getLeagueInfo = async () => {
+      const response = await viewFootballLeague();
+      setleagueInfos([response.message]);
+    };
+    getLeagueInfo();
+  }, []);
+
   return (
     <div className="admin-m-league-wrapper">
       <div className="admin-m-league-content">
@@ -12,9 +24,9 @@ const AdminManageLg = () => {
               <colgroup>
                 <col width={50} />
                 <col width={50} />
-                <col width="15%" />
+                <col width={80} />
                 <col width="*" />
-                <col width="15%" />
+                <col width="20%" />
                 <col width="20%" />
                 <col width={50} />
                 <col width={70} />
@@ -25,35 +37,48 @@ const AdminManageLg = () => {
                     <input type="checkbox" />
                   </th>
                   <th scope="col">No.</th>
+                  <th scope="col">로고</th>
                   <th scope="col">리그 이름</th>
-                  <th scope="col">리그 기간</th>
-                  <th scope="col">생성자</th>
-                  <th scope="col">생성 날짜</th>
+                  <th scope="col">국가</th>
+                  <th scope="col">시즌</th>
                   <th scope="col"></th>
                   <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <input type="checkbox" />
-                  </td>
-                  <td>1</td>
-                  <td>2024 봄 리그</td>
-                  <td>2024.03.01 - 2024.05.31</td>
-                  <td>관리자</td>
-                  <td>2024.02.20</td>
-                  <td>
-                    <button className="icon-button edit">
-                      <FiEdit />
-                    </button>
-                  </td>
-                  <td>
-                    <button className="icon-button delete">
-                      <FiTrash2 />
-                    </button>
-                  </td>
-                </tr>
+                {leagueInfos.map((league, idx) => (
+                  <tr key={idx}>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>{idx + 1}</td>
+                    <td>
+                      <img
+                        src={league.logo}
+                        alt={`${league.name} 로고`}
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          objectFit: "contain",
+                        }}
+                      />
+                    </td>
+                    <td>{league.name}</td>
+
+                    <td>{league.country}</td>
+                    <td>{league.season}</td>
+                    <td>
+                      <button className="icon-button edit">
+                        <FiEdit />
+                      </button>
+                    </td>
+                    <td>
+                      <button className="icon-button delete">
+                        <FiTrash2 />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

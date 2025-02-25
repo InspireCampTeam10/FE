@@ -28,6 +28,29 @@ const LeagueBoard = ({ leagueBoardData }) => {
     setClickedTeamName(teamName);
   };
 
+  const handleClickPosition = (e) => {
+    const inX =
+      e.clientX >= buttonPosition.x && e.clientX <= buttonPosition.x + 100;
+    const inY =
+      e.clientY >= buttonPosition.y && e.clientY <= buttonPosition.y + 50;
+
+    if (!inX && !inY) {
+      setShowButtons(false);
+    }
+  };
+
+  useEffect(() => {
+    if (showButtons) {
+      document.addEventListener("click", handleClickPosition);
+      document.addEventListener("scroll", handleClickPosition);
+
+      return () => {
+        document.removeEventListener("click", handleClickPosition);
+        document.removeEventListener("scroll", handleClickPosition);
+      };
+    }
+  }, [showButtons, buttonPosition]);
+
   useEffect(() => {
     if (tableRef.current) {
       setTableHeight(tableRef.current.scrollHeight);

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./SignUp.css";
+import "./Signup.css";
 import { signUp } from "../../api/SignApi";
 
-const SignUp = () => {
+const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -78,4 +78,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;

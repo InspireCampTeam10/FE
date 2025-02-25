@@ -4,6 +4,8 @@
   max-width: 1200px;
   padding: 2rem;
   gap: 2rem;
+  height: 100%;
+  overflow: auto;
 }
 
 .history-container {

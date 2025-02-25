@@ -9,7 +9,7 @@
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  height: 160px;
+  height: 190px;
   cursor: pointer;
 }
 
@@ -102,7 +102,6 @@
   pointer-events: none;
 }
 
-/* 스크롤바 스타일링 */
 .history-item-container.wide::-webkit-scrollbar {
   width: 8px;
 }
@@ -117,11 +116,11 @@
 }
 
 .history-item-content:not(.wide) {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  display: block;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .history-item-content.wide {
