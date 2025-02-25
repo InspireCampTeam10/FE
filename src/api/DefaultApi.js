@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const jsonAPI = axios.create({
-  baseURL: `http://${import.meta.env.VITE_REST_API_HOST}:${import.meta.env.VITE_REST_API_PORT}`,
+  // baseURL: "",
+  baseURL: "http://localhost:8090",
   headers: {
     "Content-Type": "application/json",
   },
@@ -33,7 +34,8 @@ jsonAPI.interceptors.response.use(
 );
 
 export const authAPI = axios.create({
-  baseURL: `http://${import.meta.env.VITE_REST_API_HOST}:${import.meta.env.VITE_REST_API_PORT}`,
+  // baseURL: "",
+  baseURL: "http://localhost:8090",
   headers: {
     "Content-Type": "application/json",
   },

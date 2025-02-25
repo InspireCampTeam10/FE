@@ -3,16 +3,27 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css"; // 스타일 적용
 import { IoHome } from "react-icons/io5";
 import { login } from "../../api/SignApi";
+import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    await login(email, password);
-    navigate("/");
+    setIsLoading(true);
+    const token = await login(email, password);
+    const decoded = jwtDecode(token);
+
+    if (decoded.role === "ROLE_ADMIN") {
+      setIsLoading(false);
+      !isLoading && navigate("/padmin");
+      return;
+    }
+    setIsLoading(false);
+    !isLoading && navigate("/");
   };
 
   return (

@@ -31,8 +31,14 @@
   padding: 0.7rem 0;
 }
 
-.admin-nav-content-item:hover {
-  color: white;
+.admin-nav-content-item.active {
   background-color: rgb(1, 1, 1);
+  border-radius: 6px;
+  color: white;
+}
+
+.admin-nav-content-item:hover {
+  color: rgb(255, 255, 255);
+  background-color: #544545;
   border-radius: 6px;
 }

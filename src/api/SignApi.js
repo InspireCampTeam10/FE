@@ -7,6 +7,7 @@ export const login = (email, password) =>
       if (res.status === 200) {
         const token = res.headers.get("Authorization")?.replace("Bearer ", "");
         sessionStorage.setItem("access-token", token);
+        return token;
       }
     })
     .catch((err) => {

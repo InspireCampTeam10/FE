@@ -8,6 +8,7 @@ export const useUserInfo = () => {
   const decoded = jwtDecode(token);
   const [username, setUsername] = useState(decoded.username);
   const [nickName, setNickName] = useState(decoded.nickname);
+  const role = decoded.role;
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -29,6 +30,7 @@ export const useUserInfo = () => {
     isTokenExist,
     username,
     nickName,
+    role,
     handleLogout,
     handleUpdateUsername,
     handleUpdateNickName,

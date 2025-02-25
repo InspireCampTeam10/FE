@@ -51,14 +51,11 @@ services:
       - my_network
 
   front:
-    image: jjabc3758/sports-news:latest
+    image: jjabc3758/sports-news:0.0.1
     container_name: front_container
     restart: always
     depends_on:
       - backend
-    environment:
-      - VITE_REST_API_HOST=backend
-      - VITE_REST_API_PORT=8090
     ports:
       - "1000:80"
     networks:
