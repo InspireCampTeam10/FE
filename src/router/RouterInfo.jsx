@@ -37,7 +37,7 @@ export const routerInfo = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/admin",
+    path: "/padmin",
     element: <AdminLayout />,
     children: [
       {

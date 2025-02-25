@@ -37,6 +37,14 @@ const NavigationBar = () => {
           <IoNewspaperOutline />
           <span>History</span>
         </div>
+        <div
+          className={`nav-main-tab-item ${isActive("/padmin") ? "active" : ""}`}
+          onClick={() => navigate("/padmin")}
+        >
+          <IoNewspaperOutline />
+          <span>관리자 페이지</span>
+          <span>(임시)</span>
+        </div>
       </div>
       <div className="nav-sys-tab-container">
         <div className="nav-sys-tab-item">

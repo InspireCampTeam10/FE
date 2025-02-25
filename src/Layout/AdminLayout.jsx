@@ -1,10 +1,23 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import "./AdminLayout.css";
 import AdminNavigationBar from "../components/adminnavbar/AdminNavigationBar";
 import { useUserInfo } from "../hooks/useUserInfo";
+import { useEffect } from "react";
 
 const AdminLayout = () => {
-  const { nickName, handleLogout } = useUserInfo();
+  const { nickName, role, handleLogout } = useUserInfo();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (role !== "ROLE_ADMIN") {
+      alert("관리자만 접근 가능한 페이지입니다.");
+      navigate("/");
+    }
+  }, [role, navigate]);
+
+  if (role !== "ROLE_ADMIN") {
+    return null;
+  }
 
   return (
     <div className="admin-layout-wrapper">
