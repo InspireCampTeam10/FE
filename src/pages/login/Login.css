@@ -1,0 +1,159 @@
+/* 로그인 페이지를 화면 정중앙에 배치 */
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /*  화면 전체 높이 */
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  overflow: hidden; /*  불필요한 스크롤 제거 */
+  position: fixed; /*  화면에 고정 */
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* 로그인 컨테이너 중앙 정렬 */
+.login-container {
+  background: white;
+  padding: 50px;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 중앙 정렬 */
+}
+
+/*  제목 스타일 */
+.login-container h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/*  부제목 */
+.login-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-header {
+  width: 100%;
+  text-align: start;
+  margin-bottom: 1rem;
+}
+
+.login-header-back {
+  padding: 0.25rem;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.login-header-back:hover {
+  cursor: pointer;
+}
+
+/*  입력 필드 스타일 */
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+  background-color: #f9f9f9;
+}
+
+/*  로그인 버튼 */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #d9d9d9; /*  진한 회색 */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.login-button:hover {
+  background-color: #b3b3b3;
+}
+
+/*  로그인 링크 (회원가입, 아이디 찾기, 비밀번호 찾기) */
+.login-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  width: 100%;
+  gap: 15px;
+}
+
+.login-links a {
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+/*  하단 정책 링크 */
+.login-footer {
+  margin-top: 60px;
+  font-size: 12px;
+  color: #999;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.login-footer a {
+  text-decoration: none;
+  color: #777;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+.login-error-message {
+  color: #ff3333;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 10px;
+}

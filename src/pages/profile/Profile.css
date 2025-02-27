@@ -1,0 +1,315 @@
+/* 전체 프로필 페이지 스타일 */
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding: 2rem 1rem;
+}
+
+/* 프로필 컨테이너 */
+.profile-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.profile-container > div:first-child {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.profile-container > div:first-child:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.profile-container h2 {
+  margin-bottom: 1.5rem;
+  color: #111827;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* 프로필 이미지 컨테이너 */
+.profile-image-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 1.5rem auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f3f4f6;
+  cursor: pointer;
+  border: 4px solid #f5f7fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* 숨겨진 파일 인풋에 대한 수정 */
+input[type="file"]#profile-upload {
+  /* display: none 유지하되 클릭 이벤트가 전달되도록 설정 */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+
+.profile-image-container:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.profile-image-container::after {
+  content: "변경하기";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.profile-image-container:hover::after {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.profile-image-container label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+/* 사용자 ID 표시 */
+.profile-currnet-id {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #f0f0f0;
+}
+
+.profile-currnet-id label {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.profile-currnet-id span {
+  color: #1f2937;
+  font-weight: 500;
+  background-color: #e5e7eb;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* 입력 필드 스타일 */
+.input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.input-group label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #93c5fd;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-group input:hover {
+  border-color: #d1d5db;
+}
+
+/* 버튼 스타일 */
+.profile-button {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+/* 활성화된 버튼 */
+.profile-button.active {
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.profile-button.active:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* 메시지 박스 스타일 */
+.profile-msg-box-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  animation: fadeIn 0.25s ease;
+  backdrop-filter: blur(2px);
+}
+
+.profile-msg-box-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  min-height: 180px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: scaleIn 0.3s ease;
+}
+
+.profile-msg-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.profile-msg-content {
+  margin-bottom: 1.8rem;
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.profile-msg-close {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  font-size: 1rem;
+}
+
+.profile-msg-close:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* 반응형 스타일 */
+@media (max-width: 500px) {
+  .profile-container {
+    padding: 1.5rem;
+  }
+
+  .profile-image-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-button {
+    font-size: 0.95rem;
+  }
+
+  .profile-msg-box-container {
+    width: 90%;
+    max-width: 320px;
+  }
+}

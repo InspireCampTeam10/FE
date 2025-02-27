@@ -1,0 +1,33 @@
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9f9f9;
+  --bg-msg-user: #f3f3f3;
+  --bg-active: #e3e3e3;
+  --bg-hover-primary: #ececec;
+  --bg-history-item-fold: #f9f9f9;
+  --text-primary: #0d0d0d;
+  --border-light: rgba(0, 0, 0, 0.1);
+  --tw-shadow:
+    0 9px 9px 0px rgba(0, 0, 0, 0.01), 0 2px 5px 0px rgba(0, 0, 0, 0.06);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --bg-rev-primary: #212121;
+  --text-rev-primary: #f9f9f9;
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #212121;
+  --bg-secondary: #171717;
+  --bg-msg-user: #2e2e2e;
+  --bg-active: #2f2f2f;
+  --bg-hover-primary: #212121;
+  --bg-history-item-fold: #424242;
+  --text-primary: #ececec;
+  --border-light: #e3e3e3;
+  --tw-shadow:
+    0 9px 9px 0px rgba(0, 0, 0, 0.01), 0 2px 5px 0px rgba(0, 0, 0, 0.06);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --bg-rev-primary: #f9f9f9;
+  --text-rev-primary: #212121;
+}

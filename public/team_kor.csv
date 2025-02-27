@@ -1,0 +1,21 @@
+id,city,country,logo,name,venue_image,venue_name
+33,Manchester,England,https://media.api-sports.io/football/teams/33.png,맨체스터 유나이티드,https://media.api-sports.io/football/venues/556.png,Old Trafford
+34,Newcastle upon Tyne,England,https://media.api-sports.io/football/teams/34.png,뉴캐슬,https://media.api-sports.io/football/venues/562.png,St. James' Park
+35,"Bournemouth, Dorset",England,https://media.api-sports.io/football/teams/35.png,본머스,https://media.api-sports.io/football/venues/504.png,Vitality Stadium
+36,London,England,https://media.api-sports.io/football/teams/36.png,풀럼,https://media.api-sports.io/football/venues/535.png,Craven Cottage
+39,"Wolverhampton, West Midlands",England,https://media.api-sports.io/football/teams/39.png,울버햄튼,https://media.api-sports.io/football/venues/600.png,Molineux Stadium
+40,Liverpool,England,https://media.api-sports.io/football/teams/40.png,리버풀,https://media.api-sports.io/football/venues/550.png,Anfield
+41,"Southampton, Hampshire",England,https://media.api-sports.io/football/teams/41.png,사우스햄튼,https://media.api-sports.io/football/venues/585.png,St. Mary's Stadium
+42,London,England,https://media.api-sports.io/football/teams/42.png,아스날,https://media.api-sports.io/football/venues/494.png,Emirates Stadium
+45,Liverpool,England,https://media.api-sports.io/football/teams/45.png,에버튼,https://media.api-sports.io/football/venues/8560.png,Goodison Park
+46,"Leicester, Leicestershire",England,https://media.api-sports.io/football/teams/46.png,레스터 시티,https://media.api-sports.io/football/venues/547.png,King Power Stadium
+47,London,England,https://media.api-sports.io/football/teams/47.png,토트넘 홋스퍼,https://media.api-sports.io/football/venues/593.png,Tottenham Hotspur Stadium
+48,London,England,https://media.api-sports.io/football/teams/48.png,웨스트햄,https://media.api-sports.io/football/venues/598.png,London Stadium
+49,London,England,https://media.api-sports.io/football/teams/49.png,첼시,https://media.api-sports.io/football/venues/519.png,Stamford Bridge
+50,Manchester,England,https://media.api-sports.io/football/teams/50.png,맨체스터 시티,https://media.api-sports.io/football/venues/555.png,Etihad Stadium
+51,"Falmer, East Sussex",England,https://media.api-sports.io/football/teams/51.png,브라이튼,https://media.api-sports.io/football/venues/508.png,The American Express Community Stadium
+52,London,England,https://media.api-sports.io/football/teams/52.png,크리스탈 펠리스,https://media.api-sports.io/football/venues/525.png,Selhurst Park
+55,"Brentford, Middlesex",England,https://media.api-sports.io/football/teams/55.png,브랜트포드,https://media.api-sports.io/football/venues/10503.png,Gtech Community Stadium
+57,"Ipswich, Suffolk",England,https://media.api-sports.io/football/teams/57.png,입스위치,https://media.api-sports.io/football/venues/545.png,Portman Road
+65,"Nottingham, Nottinghamshire",England,https://media.api-sports.io/football/teams/65.png,노팅엄 포레스트,https://media.api-sports.io/football/venues/566.png,The City Ground
+66,Birmingham,England,https://media.api-sports.io/football/teams/66.png,아스톤 빌라,https://media.api-sports.io/football/venues/495.png,Villa Park
