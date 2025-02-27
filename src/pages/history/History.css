@@ -60,3 +60,13 @@
     font-size: 2rem;
   }
 }
+
+.history-msg-container {
+  display: flex;
+  justify-content: center;
+}
+
+.history-msg-container span {
+  font-weight: 600;
+  font-size: 1.25rem;
+}

@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import "./HistoryItem.css";
 import { useState } from "react";
-import { historyStore } from "../../../store/HistoryStore";
 import { TimeUtils } from "../../../util/TimeUtils";
+import { useHistoryStore } from "../../../store/HistoryStore";
 
 const HistoryItem = ({
   history,
@@ -11,7 +11,7 @@ const HistoryItem = ({
   handleClickBackBtn,
 }) => {
   const [isClicked, setIsClicked] = useState(false);
-  const { removeHistory } = historyStore();
+  const { removeHistory } = useHistoryStore();
 
   const handleBackClick = (e) => {
     e.stopPropagation();
