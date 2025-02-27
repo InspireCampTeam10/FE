@@ -5,29 +5,50 @@ import { useUserInfo } from "../../hooks/useUserInfo";
 import { updateProfileImage, updateUserInfo } from "../../api/ProfileApi";
 
 const Profile = () => {
-  const [profileImage, setProfileImage] = useState(null);
-  const { username, nickName, imgUrl, handleLogout } = useUserInfo();
-  const [updateNickName, setUpdateNickName] = useState(nickName);
-  const isActive = nickName !== updateNickName;
+  const base64Img = sessionStorage.getItem("base64Img");
+  const [profileImage, setProfileImage] = useState(base64Img);
+  const { username, nickname, handleLogout } = useUserInfo();
+  const [updateNickName, setUpdateNickName] = useState(nickname);
+  const isActive = nickname !== updateNickName;
   const [isUpdate, setIsUpdate] = useState({ isActive: false, message: "" });
   const navigate = useNavigate();
 
-  console.log("imgUrl : ", imgUrl);
+  useEffect(() => {
+    if (profileImage.includes("null")) {
+      setProfileImage("/default_profile.png");
+    }
+  }, []);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setProfileImage(URL.createObjectURL(file));
-      updateProfileImage(username, file);
+      const update = async () => {
+        try {
+          const { image, token } = await updateProfileImage(username, file);
+          const dataUrl = `data:image/png;base64,${image}`;
+          sessionStorage.removeItem("access-token");
+          sessionStorage.setItem("access-token", token);
+          sessionStorage.setItem("base64Img", dataUrl);
+          setProfileImage(dataUrl);
+        } catch (err) {
+          throw new Error(err.message);
+        }
+      };
+      update();
     }
   };
   const handleUpdate = async (e) => {
     e.preventDefault();
-
+    if (!isActive) {
+      alert("변경할 이름을 입력해주세요!");
+      return;
+    }
     try {
-      const response = await updateUserInfo({ username, updateNickName });
-      if (response) {
+      const token = await updateUserInfo({ username, updateNickName });
+      if (token) {
         setIsUpdate({ isActive: true, message: "정상적으로 변경되었습니다." });
+        sessionStorage.removeItem("access-token");
+        sessionStorage.setItem("access-token", token);
         return;
       }
       setIsUpdate({
@@ -39,17 +60,11 @@ const Profile = () => {
     }
   };
 
-  useEffect(() => {
-    setProfileImage(imgUrl);
-  }, [imgUrl]);
-
   return (
     <div className="profile-wrapper">
       <div className="profile-container">
         <div onClick={handleLogout}>로그아웃</div>
         <h2>프로필 설정</h2>
-        <p>나중에 언제든지 변경할 수 있습니다.</p>
-
         {/* 🔹 프로필 이미지 컨테이너 */}
         <div className="profile-image-container">
           <label htmlFor="profile-upload">
@@ -64,8 +79,6 @@ const Profile = () => {
             id="profile-upload"
             accept="image/*"
             onChange={handleImageChange}
-            className="profile-image-container"
-            style={{ display: "none" }}
           />
         </div>
 
@@ -106,7 +119,12 @@ const Profile = () => {
           <div className="profile-msg-box-container">
             <div className="profile-msg-title">작업 결과</div>
             <div className="profile-msg-content">{isUpdate.message}</div>
-            <button className="profile-msg-close" onClick={() => {}}>
+            <button
+              className="profile-msg-close"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               확인
             </button>
           </div>

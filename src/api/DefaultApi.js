@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const jsonAPI = axios.create({
-  // baseURL: "",
   baseURL: "http://localhost:8090",
   headers: {
     "Content-Type": "application/json",
@@ -34,7 +33,6 @@ jsonAPI.interceptors.response.use(
 );
 
 export const authAPI = axios.create({
-  // baseURL: "",
   baseURL: "http://localhost:8090",
   headers: {
     "Content-Type": "application/json",

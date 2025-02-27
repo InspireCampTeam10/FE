@@ -50,3 +50,32 @@
   cursor: pointer;
   margin-top: 25px;
 }
+
+.signup-button.active {
+  background-color: rgb(85, 85, 196);
+}
+
+.sign-up-no-confirm {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.sign-up-no-confirm span {
+  color: #b93030;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: block;
+  padding: 5px 0;
+}
+
+.sign-up-deny-msg {
+  margin: 1rem 0;
+}
+
+.sign-up-deny-msg span {
+  color: #b93030;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: block;
+  padding: 5px 0;
+}

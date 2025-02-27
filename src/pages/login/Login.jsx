@@ -9,21 +9,34 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoginFail, setIsLoginFail] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const token = await login(email, password);
-    const decoded = jwtDecode(token);
 
-    if (decoded.role === "ROLE_ADMIN") {
+    try {
+      const { token } = await login(email, password);
+      if (token) {
+        const decoded = jwtDecode(token);
+
+        if (decoded.role === "ROLE_ADMIN") {
+          setIsLoading(false);
+          navigate("/padmin");
+          return;
+        }
+        setIsLoading(false);
+        navigate("/");
+      } else {
+        setIsLoginFail(true);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error("로그인 중 오류 발생:", error);
+      setIsLoginFail(true);
       setIsLoading(false);
-      !isLoading && navigate("/padmin");
-      return;
     }
-    setIsLoading(false);
-    !isLoading && navigate("/");
   };
 
   return (
@@ -45,7 +58,7 @@ const Login = () => {
           <div className="input-group">
             <label htmlFor="email">이메일</label>
             <input
-              type="email"
+              type="text"
               id="email"
               placeholder="이메일을 입력해 주세요"
               value={email}
@@ -70,6 +83,11 @@ const Login = () => {
             로그인
           </button>
         </form>
+        {isLoginFail && (
+          <div className="login-error-message">
+            이메일 또는 비밀번호가 올바르지 않습니다.
+          </div>
+        )}
 
         <div className="login-links">
           <a href="/signup">회원가입</a>

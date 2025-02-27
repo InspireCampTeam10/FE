@@ -9,10 +9,31 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [userNickname, setUserNickName] = useState("");
+  const isConfirm = password === confirmPassword;
+  const [isConfirmMsg, setIsConfirmMsg] = useState(false);
+  const [isSuccessSignUp, setIsSuccessSignUp] = useState(false);
+  const [signUpMsg, setSignUpMsg] = useState("");
+
+  const isActive =
+    email !== "" &&
+    password !== "" &&
+    confirmPassword !== "" &&
+    userNickname !== "";
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    await signUp(email, password, userNickname);
+    if (!isConfirm) {
+      setIsConfirmMsg(true);
+      return;
+    }
+    const { isSuccess, message } = await signUp(email, password, userNickname);
+    setIsSuccessSignUp(isSuccess);
+    setSignUpMsg(message);
+
+    if (!isSuccess) {
+      return;
+    }
+
     navigate("/");
   };
 
@@ -35,11 +56,11 @@ const Signup = () => {
             />
           </div>
           <div className="input-group">
-            <label htmlFor="email">이메일</label>
+            <label htmlFor="email">아이디</label>
             <input
-              type="email"
+              type="text"
               id="email"
-              placeholder="이메일을 입력해 주세요"
+              placeholder="아이디를 입력해주세요"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -57,7 +78,6 @@ const Signup = () => {
               required
             />
           </div>
-
           <div className="input-group">
             <label htmlFor="confirm-password">비밀번호 확인</label>
             <input
@@ -68,11 +88,22 @@ const Signup = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
+            <div className="sign-up-no-confirm">
+              {isConfirmMsg && (
+                <span>비밀번호가 일치하는지 다시 확인해주세요</span>
+              )}
+            </div>
           </div>
-          <button type="submit" className="signup-button">
+          <button
+            type="submit"
+            className={`signup-button ${isActive ? "active" : ""}`}
+          >
             회원가입 완료
           </button>
         </form>
+        <div className="sign-up-deny-msg">
+          {!isSuccessSignUp && <span>{signUpMsg}</span>}
+        </div>
       </div>
     </div>
   );
