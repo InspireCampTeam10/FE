@@ -150,3 +150,10 @@
 .login-footer a:hover {
   text-decoration: underline;
 }
+
+.login-error-message {
+  color: #ff3333;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 10px;
+}
