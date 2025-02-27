@@ -1,22 +1,11 @@
 .default-layout-container {
   display: flex;
-  min-height: 100vh;
-}
-
-.default-layout-navigation {
-  width: 120px;
-  height: 100vh;
-  overflow: hidden;
-  flex-shrink: 0;
-  position: fixed;
 }
 
 .default-layout-contents {
-  width: calc(100% - 120px);
-  margin-left: 120px;
-  display: flex;
   flex: 1;
-  flex-direction: column;
+  height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
 }

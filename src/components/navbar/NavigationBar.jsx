@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./NavigationBar.css";
 import { FiHome } from "react-icons/fi";
 import { IoNewspaperOutline } from "react-icons/io5";
@@ -6,52 +6,26 @@ import { FaRegUserCircle } from "react-icons/fa";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const isActive = (target) => location.pathname === target;
-  const token = sessionStorage.getItem("access-token");
-
   return (
-    <div className="nav-wrapper">
-      <div className="nav-main-tab-container">
-        <img
-          className="nav-main-tab-logo"
-          src="/ApplicationLogo.png"
-          onClick={() => navigate("/")}
-        />
-        <div
-          className={`nav-main-tab-item ${isActive("/") ? "active" : ""}`}
-          onClick={() => {
-            if (location.pathname === "/") {
-              navigate(0);
-              return;
-            }
-            navigate("/", { replace: true });
-          }}
-        >
+    <div className="navigation-bar-container">
+      <div className="navigation-bar-content">
+        <div className="navigation-bar-tab" onClick={() => navigate("/")}>
           <FiHome />
           <span>Home</span>
         </div>
         <div
-          className={`nav-main-tab-item ${isActive("/history") ? "active" : ""}`}
-          onClick={() => navigate("/history")}
+          className="navigation-bar-tab"
+          onClick={() => navigate("/fit-news")}
         >
           <IoNewspaperOutline />
-          <span>History</span>
+          <span>Fit News</span>
         </div>
       </div>
-      <div className="nav-sys-tab-container">
-        <div
-          className="nav-sys-tab-item"
-          onClick={() => {
-            if (token && token !== "undefined") {
-              navigate("/profile");
-            } else {
-              navigate("/login");
-            }
-          }}
-        >
-          <FaRegUserCircle />
-        </div>
+      <div
+        className="navigation-bar-login-tab"
+        onClick={() => navigate("/login")}
+      >
+        <FaRegUserCircle />
       </div>
     </div>
   );

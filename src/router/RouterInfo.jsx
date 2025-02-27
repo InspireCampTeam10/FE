@@ -3,11 +3,6 @@ import DefaultLayout from "../Layout/DefaultLayout";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Profile from "../pages/profile/Profile";
-import History from "../pages/history/History";
-import AdminLayout from "../Layout/AdminLayout";
-import AdminManageLg from "../pages/admin/AdminManageLg";
-import AdminHome from "../pages/admin/AdminHome";
-import Signup from "../pages/signup/Signup";
 
 export const routerInfo = createBrowserRouter([
   {
@@ -19,34 +14,12 @@ export const routerInfo = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/profile",
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/profile/*",
         element: <Profile />,
-      },
-      {
-        path: "/history",
-        element: <History />,
-      },
-    ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-  {
-    path: "/padmin",
-    element: <AdminLayout />,
-    children: [
-      {
-        path: "",
-        element: <AdminHome />,
-      },
-      {
-        path: "manage-league",
-        element: <AdminManageLg />,
       },
     ],
   },
