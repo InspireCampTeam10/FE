@@ -5,7 +5,7 @@ import { useUserInfo } from "../hooks/useUserInfo";
 import { useEffect } from "react";
 
 const AdminLayout = () => {
-  const { nickName, role, handleLogout } = useUserInfo();
+  const { nickname, role, handleLogout } = useUserInfo();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const AdminLayout = () => {
       </div>
       <div className="admin-layout-content">
         <div className="admin-header">
-          <div className="header-hello">{nickName}님 안녕하세요</div>
+          <div className="header-hello">{nickname} 님 안녕하세요</div>
           <div className="header-logout" onClick={handleLogout}>
             로그아웃
           </div>

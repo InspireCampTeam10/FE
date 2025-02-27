@@ -131,3 +131,14 @@
   background-color: var(--bg-active);
   cursor: pointer;
 }
+
+.home-no-data-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.home-no-data-container span {
+  text-align: center;
+}

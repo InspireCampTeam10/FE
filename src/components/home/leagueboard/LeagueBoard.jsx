@@ -3,7 +3,7 @@ import "./LeagueBoard.css";
 import PropTypes from "prop-types";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import LeagueBoardItem from "./LeagueBoardItem";
-import searchTagStore from "../../../store/SearchStore";
+import { useSearchTagStore } from "../../../store/SearchStore";
 
 const LeagueBoard = ({ leagueBoardData }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ const LeagueBoard = ({ leagueBoardData }) => {
   const [showButtons, setShowButtons] = useState(false);
   const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
   const [clickedTeamName, setClickedTeamName] = useState("");
-  const { addTag } = searchTagStore();
+  const { addTag } = useSearchTagStore();
 
   const handleRowClick = (e, teamName) => {
     setShowButtons(true);
@@ -156,15 +156,6 @@ const LeagueBoard = ({ leagueBoardData }) => {
             }}
           >
             추가
-          </button>
-          <button
-            className="favorite-button"
-            onClick={() => {
-              // 찜하기 로직 작성 필요
-              setShowButtons(false);
-            }}
-          >
-            찜하기
           </button>
         </div>
       )}

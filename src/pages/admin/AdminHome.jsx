@@ -4,13 +4,10 @@ import {
   footBallInit,
   footBallTeamInit,
   footBallUpdate,
-  viewFootballLeague,
-  viewFootballTeam,
 } from "../../api/AdminApi";
 
 const AdminHome = () => {
   const [loading, setLoading] = useState(false);
-  const [teamId, setTeamId] = useState("");
   const [msgBoxShow, setMsgBoxShow] = useState(false);
   const [msgContent, setMsgContent] = useState("");
 
@@ -32,42 +29,27 @@ const AdminHome = () => {
   });
 
   const handleInitFootBall = async () => {
+    setLoading(true);
     const { isSuccess, message } = await footBallInit();
+    setLoading(false);
     setMsgBoxShow(true);
     setMsgContent(message);
   };
 
   const handleUpdateFootBall = async () => {
+    setLoading(true);
     const { isSuccess, message } = await footBallUpdate();
+    setLoading(false);
     setMsgBoxShow(true);
     setMsgContent(message);
   };
 
   const handleInitTeam = async () => {
+    setLoading(true);
     const { isSuccess, message } = await footBallTeamInit();
+    setLoading(false);
     setMsgBoxShow(true);
     setMsgContent(message);
-  };
-
-  const handleViewLeague = async () => {
-    const { isSuccess, message } = await viewFootballLeague();
-    setMsgBoxShow(true);
-    setLeagueInfo({ ...message });
-  };
-
-  const handleViewTeam = async () => {
-    if (teamId === "") {
-      alert("팀 아이디를 입력해주세요");
-      return;
-    }
-    const { isSuccess, message } = await viewFootballTeam(teamId);
-    if (!isSuccess) {
-      setMsgContent(message);
-      setMsgBoxShow(true);
-      return;
-    }
-    setMsgBoxShow(true);
-    setTeamInfo({ ...message });
   };
 
   return (
