@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { deleteHistory } from "../api/HistoryApi";
 
-export const historyStore = create((set, get) => ({
+export const useHistoryStore = create((set, get) => ({
   histories: [],
   setHistoryArr: (newsArr) => set({ histories: [...newsArr] }),
   addHistory: (news) => {
@@ -19,4 +19,5 @@ export const historyStore = create((set, get) => ({
     callDeleteHistoryApi();
     setHistoryArr(histories.filter((news) => news.id !== id));
   },
+  resetHistory: () => set({ histories: [] }),
 }));

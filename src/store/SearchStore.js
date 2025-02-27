@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const searchTagStore = create((set, get) => ({
+export const useSearchTagStore = create((set, get) => ({
   tags: [],
   categoryTags: "",
   setTags: (tags) => set(() => ({ tags })),
@@ -17,6 +17,10 @@ const searchTagStore = create((set, get) => ({
     const { tags, setTags } = get();
     setTags(tags.filter((item) => item !== tag));
   },
+  resetTags: () => {
+    set({
+      tags: [],
+      categoryTags: "",
+    });
+  },
 }));
-
-export default searchTagStore;
