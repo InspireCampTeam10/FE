@@ -46,3 +46,9 @@
 .nav-main-tab-item span {
   font-size: 0.875rem;
 }
+
+.nav-main-tab-logo {
+  padding: 1rem 0.25rem;
+  margin: 0.5rem 0.5rem;
+  cursor: pointer;
+}

@@ -1,12 +1,12 @@
 import { BsSearch } from "react-icons/bs";
 import "./Searchbar.css";
 import TagItem from "./TagItem";
-import searchTagStore from "../../../store/SearchStore";
 import PropTypes from "prop-types";
 import { useRef, useState } from "react";
+import { useSearchTagStore } from "../../../store/SearchStore";
 
 const Searchbar = ({ handleSearchBtn }) => {
-  const { tags } = searchTagStore();
+  const { tags } = useSearchTagStore();
   const textareaRef = useRef(null);
   const [inputText, setInputText] = useState("");
 

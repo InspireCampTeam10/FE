@@ -9,5 +9,8 @@ export const postSearchApi = (keywords) =>
       }
     })
     .catch((err) => {
+      if (err.response && err.response.status === 403) {
+        return false;
+      }
       throw new Error(err.message || "검색에 실패했습니다.");
     });

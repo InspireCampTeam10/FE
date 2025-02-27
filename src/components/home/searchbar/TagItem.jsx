@@ -1,10 +1,10 @@
 import Prototype from "prop-types";
 import "./TagItem.css";
 import { TiDeleteOutline } from "react-icons/ti";
-import searchTagStore from "../../../store/SearchStore";
+import { useSearchTagStore } from "../../../store/SearchStore";
 
 const TagItem = ({ tag }) => {
-  const { removeTag } = searchTagStore();
+  const { removeTag } = useSearchTagStore();
   return (
     <div className="tag-item-container" onClick={() => removeTag(tag)}>
       <span>{tag}</span>
